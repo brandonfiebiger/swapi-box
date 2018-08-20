@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch( 'http://swapi.co/api/films' )
+    fetch( 'https://swapi.co/api/films/' )
       .then(response => response.json())
       .then(data => {
         const filmCrawls = CleanData(data, 'film');
