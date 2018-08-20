@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardContainer should match the snapshot 1`] = `undefined`;
+
+exports[`CardContainer should match the snapshot when multiple cards are in infoCards array 1`] = `undefined`;
+
+exports[`CardContainer should match the snapshot when one card is in infoCards array 1`] = `undefined`;
