@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './App.scss';
-import mockPeopleData from './mockPeopleData'
-import Crawl from './Components/Crawl/Crawl.js';
-import Favorites from './Components/Favorites/Favorites.js'
 
 import CleanData from './helper';
-import FilmData from './mockFilmData';
+import Crawl from './Components/Crawl/Crawl.js';
+import Favorites from './Components/Favorites/Favorites.js'
+import Categories from './Components/Categories/Categories';
 
 class App extends Component {
   constructor() {
@@ -33,11 +32,20 @@ class App extends Component {
       });
   }
 
+  selectCategory = (category) => {
+    this.setState({ selectedCategory: category });
+  }
+
   render() {
+    const { favorites, categories, selectedCategory, filmCrawls, loading } = this.state;
     return (
       <div className="App">
-        <Favorites favorites={this.state.favorites}/>
-        <Crawl filmCrawls={this.state.filmCrawls} loading={this.state.loading}/>
+        <Favorites favorites={favorites} />
+        <Categories 
+          categories={categories} 
+          selectedCategory={selectedCategory}
+          selectCategory={this.selectCategory} />
+        <Crawl filmCrawls={filmCrawls} loading={loading} />
       </div>
     );
   }
