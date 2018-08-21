@@ -6,7 +6,7 @@ class Crawl extends Component {
      super();
 
    }
-   
+
      render() {
        let title;
        let crawl;
@@ -18,10 +18,10 @@ class Crawl extends Component {
       }
          return(
           <marquee direction="up">
-          <h2>{title}</h2>
-          <p>{crawl}</p>
-          <p>{date}</p>
-        </marquee>
+            <h2>{title}</h2>
+            <p>{crawl}</p>
+            <p>{date}</p>
+          </marquee>
       )
 
 

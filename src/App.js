@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import mockPeopleData from './mockPeopleData'
 import Crawl from './Components/Crawl/Crawl.js';
+import Favorites from './Components/Favorites/Favorites.js'
 
 import CleanData from './helper';
 import FilmData from './mockFilmData';
@@ -31,12 +32,12 @@ class App extends Component {
       .catch(() => {
         this.setState({ error: true });
       });
-      console.log(this.state)
   }
 
   render() {
     return (
       <div className="App">
+        <Favorites favorites={this.state.favorites}/>
         <Crawl filmCrawls={this.state.filmCrawls} loading={this.state.loading}/>
       </div>
     );
