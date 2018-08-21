@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Categories.scss';
 
 const Categories = ({ categories, selectedCategory, selectCategory }) => {
@@ -13,14 +14,20 @@ const Categories = ({ categories, selectedCategory, selectCategory }) => {
       name={category}
       key={index}
       className={'btn ' + selectedBtn}
-      onClick={(e) => selectCategory(e.target.name)}>
+      onClick={(event) => selectCategory(event.target.name)}>
       {category}
-    </button>
+    </button>;
   });
 
   return (
     <nav className='nav'>{buttons}</nav>
-  )
-}
+  );
+};
 
 export default Categories;
+
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string),
+  selectedCategory: PropTypes.string,
+  selectCategory: PropTypes.func
+};
