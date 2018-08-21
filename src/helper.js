@@ -42,7 +42,7 @@ const getPeopleData = (data) => {
       species: species.name
     };
   } )
- 
+
   return Promise.all(unresolvedPeople);
 }
 

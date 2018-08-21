@@ -12,11 +12,11 @@ class App extends Component {
     super();
     this.state = {
       categories: ['people', 'planets', 'vehicles'],
-      selectedCategory: 'people',
+      selectedCategory: '',
       cards: [],
       favorites: [],
       films: [],
-      people: [{name: 'bob', type: 'human'}],
+      people: [],
       planets: [],
       vehicles: [],
       error: false,
@@ -24,7 +24,7 @@ class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.fetchData('films');
   }
 
@@ -52,6 +52,7 @@ class App extends Component {
       const response = await fetch(url);
       const data = await response.json();
       const cleanedData = await CleanData(data, category);
+   
       this.setState({ [category]: cleanedData, loading: false });
     } 
     catch(error) {
@@ -60,11 +61,15 @@ class App extends Component {
   }
 
   selectCategory = (category) => {
+    if (!this.state[category].length) {
+      this.fetchData(category)
+    }
     this.setState({ selectedCategory: category });
   }
 
   render() {
     const { favorites, categories, selectedCategory, films, loading } = this.state;
+    const category = this.state[selectedCategory] || []; 
     return (
       <div className="App">
         <Favorites favorites={favorites} />
@@ -73,7 +78,7 @@ class App extends Component {
           selectedCategory={selectedCategory}
           selectCategory={this.selectCategory} />
         <Crawl films={films} loading={loading} />
-        <CardContainer category={this.state[selectedCategory]} />
+        <CardContainer category={category} />
       </div>
     );
   }
