@@ -8,12 +8,13 @@ class Crawl extends Component {
    }
 
      render() {
+       const { loading, films } = this.props;
        let title;
        let crawl;
        let date;
        let randomFilmCrawl;
-       if(!this.props.loading) {
-         randomFilmCrawl = this.props.films[Math.floor(Math.random() * 6) + 1 ]
+       if(!loading) {
+         randomFilmCrawl = films[Math.floor(Math.random() * 6) + 1 ]
          title = randomFilmCrawl.title;
          crawl = randomFilmCrawl.crawl;
          date = randomFilmCrawl.date;
