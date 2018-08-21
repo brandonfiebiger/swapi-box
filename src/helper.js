@@ -15,7 +15,7 @@ const getData = (data, dataCategory) => {
       cleanedData = getVehicleData(data);
       break;
     default: 
-      cleanedData;
+      cleanedData = [];
   }
 
   return cleanedData;
@@ -32,30 +32,25 @@ const getFilmData = (data) => {
 }
 
 const getPeopleData = (data) => {
-  let allPeople = [];
-  fetch('https://swapi.co/api/people/')
-  .then(response => response.json())
-  .then(data => {
-    data.results.forEach(result => {
-      let person = {};
-      person.name = result.name;
-      fetch(result.homeworld)
-      .then(response => response.json())
-      .then(data => {
-        person.homeworld = data.name;
-        person.population = data.population;
-      })
-      fetch(result.species)
-      .then(response => response.json())
-      .then(data => {
-        person.species = data.name
-      })
-      allPeople.push(person)
-    })
-  })
-  return allPeople;
+  const unresolvedPeople = data.results.map( async person => {
+    const homeworld = await fetchData(person.homeworld);
+    const species = await fetchData(person.species);
+    return { 
+      name: person.name, 
+      homeworld: homeworld.name, 
+      population: homeworld.population,
+      species: species.name
+    };
+  } )
+ 
+  return Promise.all(unresolvedPeople);
 }
 
+const fetchData = async (url) => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
 
 const getPlanetData = (data) => {
 

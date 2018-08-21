@@ -23,7 +23,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchData('films');
   }
 
@@ -35,18 +35,18 @@ class App extends Component {
         url = 'https://swapi.co/api/films/';
         break;
       case 'people':
-        url = '';
+        url = 'https://swapi.co/api/people/';
         break;
       case 'planets': 
-        url = '';
+        url = 'https://swapi.co/api/planets/';
         break;
       case 'vehicles':
-        url = '';
+        url = 'https://swapi.co/api/vehicles/';
         break;
       default:
-        url;
+        url = '';
     }
-    
+
     try {
       const response = await fetch(url);
       const data = await response.json();
