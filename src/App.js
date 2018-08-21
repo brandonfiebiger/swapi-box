@@ -26,7 +26,6 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         const filmCrawls = CleanData(data, 'film');
-        console.log(filmCrawls)
         this.setState({ filmCrawls, loading: false });
       })
       .catch(() => {
