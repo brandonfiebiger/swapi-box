@@ -19,34 +19,29 @@ const getFilmData = (data) => {
 }
 
 const getPeopleData = (data) => {
-  let peopleArray = []
-  let newArray = [];
+  let allPeople = [];
   fetch('https://swapi.co/api/people/')
   .then(response => response.json())
-  .then(datas => {
-    peopleArray = datas.results;
-
-    for (let i = 0; i < peopleArray.length; i++) {
+  .then(data => {
+    data.results.forEach(result => {
       let person = {};
-      person.name = peopleArray[i].name;
-      fetch(peopleArray[i].homeworld)
+      person.name = result.name;
+      fetch(result.homeworld)
       .then(response => response.json())
       .then(data => {
-        person.homeworld = data.name
-        person.population = data.population
+        person.homeworld = data.name;
+        person.population = data.population;
       })
-      fetch(peopleArray[i].species)
+      fetch(result.species)
       .then(response => response.json())
       .then(data => {
         person.species = data.name
       })
-      console.log(person)
-      newArray.push(person);
-    }
-    console.log(newArray)
+      allPeople.push(person)
+    })
   })
+  return allPeople;
 }
-getPeopleData();
 
 
 const getPlanetData = (data) => {
