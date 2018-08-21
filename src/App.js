@@ -5,17 +5,18 @@ import CleanData from './helper';
 import Crawl from './Components/Crawl/Crawl.js';
 import Favorites from './Components/Favorites/Favorites.js'
 import Categories from './Components/Categories/Categories';
+import CardContainer from './Components/CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       categories: ['people', 'planets', 'vehicles'],
-      selectedCategory: '',
+      selectedCategory: 'people',
       cards: [],
       favorites: [],
       films: [],
-      people: [],
+      people: [{name: 'bob', type: 'human'}],
       planets: [],
       vehicles: [],
       error: false,
@@ -72,6 +73,7 @@ class App extends Component {
           selectedCategory={selectedCategory}
           selectCategory={this.selectCategory} />
         <Crawl films={films} loading={loading} />
+        <CardContainer category={this.state[selectedCategory]} />
       </div>
     );
   }
