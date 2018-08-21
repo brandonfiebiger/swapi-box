@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import mockPeopleData from './mockPeopleData'
+import Crawl from './Components/Crawl/Crawl.js';
 
 import CleanData from './helper';
 import FilmData from './mockFilmData';
@@ -14,7 +15,8 @@ class App extends Component {
       cards: [],
       favorites: [],
       filmCrawls: [],
-      error: false
+      error: false,
+      loading: true
     };
   }
 
@@ -24,20 +26,18 @@ class App extends Component {
       .then(data => {
         const filmCrawls = CleanData(data, 'film');
         console.log(filmCrawls)
-        this.setState({ filmCrawls });
+        this.setState({ filmCrawls, loading: false });
       })
       .catch(() => {
         this.setState({ error: true });
       });
-    // const filmCrawls = CleanData(FilmData, 'film');
-    // this.setState({ filmCrawls });
-    // console.log(filmCrawls)
+      console.log(this.state)
   }
 
   render() {
     return (
       <div className="App">
-        
+        <Crawl filmCrawls={this.state.filmCrawls} loading={this.state.loading}/>
       </div>
     );
   }
