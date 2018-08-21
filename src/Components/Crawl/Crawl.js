@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Crawl.scss';
+import './Crawl.css';
 
 class Crawl extends Component {
    constructor() {

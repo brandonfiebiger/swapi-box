@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Categories.scss';
+import './Categories.css';
 
 const Categories = ({ categories, selectedCategory, selectCategory }) => {
   const buttons = categories.map( (category, index) => {

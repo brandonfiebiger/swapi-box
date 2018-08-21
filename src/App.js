@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './App.css';
 
 import CleanData from './helper';
 import Crawl from './Components/Crawl/Crawl.js';
@@ -15,6 +15,9 @@ class App extends Component {
       cards: [],
       favorites: [],
       filmCrawls: [],
+      people: [],
+      planets: [],
+      vehicles: [],
       error: false,
       loading: true
     };

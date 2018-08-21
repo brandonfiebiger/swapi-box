@@ -1,11 +1,12 @@
 import React from 'react';
+import './Favorites.css';
 
-const Favorites = (props) => {
+const Favorites = ({ favorites }) => {
 
   return(
-    <div>
-      View Favorites {props.favorites.length}
-    </div>
+    <button>
+      View Favorites: {favorites.length}
+    </button>
   )  
 }
 
