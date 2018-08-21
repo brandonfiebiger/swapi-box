@@ -11,10 +11,12 @@ class Crawl extends Component {
        let title;
        let crawl;
        let date;
+       let randomFilmCrawl;
        if(!this.props.loading) {
-         title = this.props.filmCrawls[0].title;
-         crawl = this.props.filmCrawls[0].crawl;
-         date = this.props.filmCrawls[0].date;
+         randomFilmCrawl = this.props.filmCrawls[Math.floor(Math.random() * 7) + 1 ]
+         title = randomFilmCrawl.title;
+         crawl = randomFilmCrawl.crawl;
+         date = randomFilmCrawl.date;
       }
          return(
           <marquee direction="up">

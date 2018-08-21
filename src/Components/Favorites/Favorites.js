@@ -4,7 +4,7 @@ const Favorites = (props) => {
 
   return(
     <div>
-      {props.favorites.length}
+      View Favorites {props.favorites.length}
     </div>
   )  
 }
