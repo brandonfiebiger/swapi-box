@@ -15,6 +15,9 @@ class App extends Component {
       cards: [],
       favorites: [],
       filmCrawls: [],
+      people: [],
+      planets: [],
+      vehicles: [],
       error: false,
       loading: true
     };
