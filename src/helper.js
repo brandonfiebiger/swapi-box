@@ -1,8 +1,21 @@
 const getData = (data, dataCategory) => {
   let cleanedData = [];
 
-  if (dataCategory === 'film') {
-    cleanedData = getFilmData(data);
+  switch(dataCategory) {
+    case 'films':
+      cleanedData = getFilmData(data);
+      break;
+    case 'people':
+      cleanedData = getPeopleData(data);
+      break;
+    case 'planets':
+      cleanedData = getPlanetData(data);
+      break;
+    case 'vehicles':
+      cleanedData = getVehicleData(data);
+      break;
+    default: 
+      cleanedData;
   }
 
   return cleanedData;
