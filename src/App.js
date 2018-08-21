@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './App.css';
 
 import CleanData from './helper';
 import Crawl from './Components/Crawl/Crawl.js';
