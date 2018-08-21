@@ -14,7 +14,7 @@ class App extends Component {
       selectedCategory: '',
       cards: [],
       favorites: [],
-      filmCrawls: [],
+      films: [],
       people: [],
       planets: [],
       vehicles: [],
@@ -23,16 +23,39 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch( 'https://swapi.co/api/films/' )
-      .then(response => response.json())
-      .then(data => {
-        const filmCrawls = CleanData(data, 'film');
-        this.setState({ filmCrawls, loading: false });
-      })
-      .catch(() => {
-        this.setState({ error: true });
-      });
+  async componentDidMount() {
+    this.fetchData('films');
+  }
+
+  fetchData = async (category) => {
+    let url = '';
+
+    switch(category) {
+      case 'films':
+        url = 'https://swapi.co/api/films/';
+        break;
+      case 'people':
+        url = 'https://swapi.co/api/people/';
+        break;
+      case 'planets': 
+        url = 'https://swapi.co/api/planets/';
+        break;
+      case 'vehicles':
+        url = 'https://swapi.co/api/vehicles/';
+        break;
+      default:
+        url = '';
+    }
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const cleanedData = await CleanData(data, category);
+      this.setState({ [category]: cleanedData, loading: false });
+    } 
+    catch(error) {
+      this.setState({ error: true })
+    }
   }
 
   selectCategory = (category) => {
@@ -40,7 +63,7 @@ class App extends Component {
   }
 
   render() {
-    const { favorites, categories, selectedCategory, filmCrawls, loading } = this.state;
+    const { favorites, categories, selectedCategory, films, loading } = this.state;
     return (
       <div className="App">
         <Favorites favorites={favorites} />
@@ -48,7 +71,7 @@ class App extends Component {
           categories={categories} 
           selectedCategory={selectedCategory}
           selectCategory={this.selectCategory} />
-        <Crawl filmCrawls={filmCrawls} loading={loading} />
+        <Crawl films={films} loading={loading} />
       </div>
     );
   }
