@@ -96,7 +96,7 @@ class App extends Component {
           selectedCategory={selectedCategory}
           selectCategory={this.selectCategory} />
         <Crawl films={films} loading={loading} />
-        <CardContainer category={category} />
+        <CardContainer category={category} toggleFavorites={this.toggleFavorites} />
       </div>
     );
   }
