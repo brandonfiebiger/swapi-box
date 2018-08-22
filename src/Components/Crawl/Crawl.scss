@@ -2,32 +2,39 @@
 .crawler-container {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   width: 20rem;
   border: 1px solid cadetblue;
   height: 100vh;
-  perspective: 300vh;
+  perspective: 300px;
   overflow: hidden;
+  background: black;
 }
 
 .crawler {
   position: relative;
   font-size: 2rem;
-  top: 18800px;
-  transform-origin: 50% 100%;
-  animation: crawl 700s linear;
-  color: yellow
+  width: 100%;
+  animation: crawl 60s infinite linear;
+  color: yellow;
+}
+
+.crawler p {
+  width: 100%
 }
 
 @keyframes crawl {
   0% {
-    top: 1500px;
-    transform: rotateX(20deg translateZ(0));
+    top: 100vh;
+    transform: rotateX(20deg) translateZ(0);
   }
 
   100% {
     top: -6000px;
-    transform: rotateX(280deg) translateZ(-2500px)
+    transform: rotateX(25deg) translateZ(-2500px)
 
   }
+}
+
+.film-end {
+  margin-bottom: 200vh;
 }
