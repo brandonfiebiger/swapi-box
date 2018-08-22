@@ -41,7 +41,7 @@ const getPeopleData = (data) => {
       population: homeworld.population,
       species: species.name
     };
-  } )
+  });
 
   return Promise.all(unresolvedPeople);
 }

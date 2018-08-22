@@ -83,13 +83,12 @@ class App extends Component {
   render() {
     const { favorites, categories, selectedCategory, films, loading } = this.state;
     const category = this.state[selectedCategory] || []; 
-    if (loading) {
-      return (
-        <p>loading</p>
-      )
-    }
+    let appLoading = 'hide-loading';
+    loading ? appLoading = 'show-loading' : appLoading;
+    
     return (
-      <div className="App">
+      <div className='App'>
+        <div className={appLoading}>Loading...</div>
         <Favorites favorites={favorites} />
         <Categories 
           categories={categories} 
