@@ -1,0 +1,40 @@
+
+.crawler-container {
+  display: flex;
+  justify-content: center;
+  width: 20rem;
+  border: 1px solid cadetblue;
+  height: 100vh;
+  perspective: 300px;
+  overflow: hidden;
+  background: black;
+}
+
+.crawler {
+  position: relative;
+  font-size: 2rem;
+  width: 100%;
+  animation: crawl 60s infinite linear;
+  color: yellow;
+}
+
+.crawler p {
+  width: 100%
+}
+
+@keyframes crawl {
+  0% {
+    top: 100vh;
+    transform: rotateX(20deg) translateZ(0);
+  }
+
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px)
+
+  }
+}
+
+.film-end {
+  margin-bottom: 200vh;
+}
