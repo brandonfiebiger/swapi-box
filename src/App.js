@@ -89,13 +89,15 @@ class App extends Component {
     return (
       <div className='App'>
         <div className={appLoading}>Loading...</div>
-        <Favorites favorites={favorites} />
-        <Categories 
-          categories={categories} 
-          selectedCategory={selectedCategory}
-          selectCategory={this.selectCategory} />
         <Crawl films={films} loading={loading} />
-        <CardContainer category={category} toggleFavorites={this.toggleFavorites} />
+        <main>
+          <Favorites favorites={favorites} />
+          <Categories 
+            categories={categories} 
+            selectedCategory={selectedCategory}
+            selectCategory={this.selectCategory} />
+          <CardContainer category={category} toggleFavorites={this.toggleFavorites} />
+        </main>
       </div>
     );
   }

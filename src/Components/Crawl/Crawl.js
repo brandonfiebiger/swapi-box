@@ -20,11 +20,13 @@ class Crawl extends Component {
          date = randomFilmCrawl.date;
       }
          return(
-          <marquee direction="up">
-            <h2>{title}</h2>
-            <p>{crawl}</p>
-            <p>{date}</p>
-          </marquee>
+          <section className="crawler-container">
+            <div>
+              <h2 className="crawler">{title}</h2>
+              <p className="crawler">{crawl}</p>
+              <p className="crawler">{date}</p>
+            </div>
+          </section>
       )
 
 
