@@ -66,7 +66,14 @@ const getPlanetData = (data) => {
 }
 
 const getVehicleData = (data) => {
-     
+  return data.results.map(vehicle => {
+    return {
+      name: vehicle.name,
+      model: vehicle.model,
+      class: vehicle.vehicle_class,
+      'number of passengers': vehicle.passengers
+    }
+  })
 }
 
 const fetchData = async (url) => {
