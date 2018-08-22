@@ -62,23 +62,40 @@ class App extends Component {
 
   selectCategory = (category) => {
     if (!this.state[category].length) {
+      this.setState({ loading: true })
       this.fetchData(category)
     }
     this.setState({ selectedCategory: category });
   }
 
+  toggleFavorites = (element) => {
+    const { favorites } = this.state;
+    const clickedCard = element;
+
+    if (favorites.includes(clickedCard)) {
+      const filteredFavorites = favorites.filter( favorite => favorite !== clickedCard)
+      this.setState({ favorites: filteredFavorites });
+    } else {
+      this.setState({ favorites: [...favorites, clickedCard] });
+    }
+  }
+
   render() {
     const { favorites, categories, selectedCategory, films, loading } = this.state;
     const category = this.state[selectedCategory] || []; 
+    let appLoading = 'hide-loading';
+    loading ? appLoading = 'show-loading' : appLoading;
+    
     return (
-      <div className="App">
+      <div className='App'>
+        <div className={appLoading}>Loading...</div>
         <Favorites favorites={favorites} />
         <Categories 
           categories={categories} 
           selectedCategory={selectedCategory}
           selectCategory={this.selectCategory} />
         <Crawl films={films} loading={loading} />
-        <CardContainer category={category} />
+        <CardContainer category={category} toggleFavorites={this.toggleFavorites} />
       </div>
     );
   }
