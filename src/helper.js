@@ -33,8 +33,10 @@ const getFilmData = (data) => {
 
 const getPeopleData = (data) => {
   const unresolvedPeople = data.results.map( async person => {
-    const homeworld = await fetchData(person.homeworld);
-    const species = await fetchData(person.species);
+    const responseHomeworld = await fetch(person.homeworld)
+    const homeworld = await responseHomeworld.json()
+    const responseSpecies = await fetch(person.species)
+    const species = await responseSpecies.json();
     return { 
       name: person.name, 
       homeworld: homeworld.name, 
@@ -76,9 +78,4 @@ const getVehicleData = (data) => {
   })
 }
 
-const fetchData = async (url) => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
 export default getData;
