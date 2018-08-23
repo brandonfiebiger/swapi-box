@@ -16,7 +16,7 @@ describe('App', () => {
   })
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
   describe('fetchData', () => {
     it('should set state to the appropiate category if fetch works', async () => {
@@ -32,17 +32,34 @@ describe('App', () => {
       await wrapper.instance().fetchData('nope')
       expect(wrapper.state('error')).toEqual(true)
     })
-    
-    // it('should call CleanData method', async () => {
-    //   await wrapper.instance().fetchData('films')
-      
-    // })
   })
-
+  
   describe('selectCategory', () => {
-    it('should set the state of loading to true if the selected categories array does not have length',  () => {
+    it('should set state of selectedCategory to category being passed in', () => {
+      expect(wrapper.state('selectedCategory')).toEqual('');
       wrapper.instance().selectCategory('planets');
-      expect(wrapper.state('loading')).toEqual(true);
+      expect(wrapper.state('selectedCategory')).toEqual('planets');
+    })
+    
+    
+    it('should set the state of loading to true if the selected categories array does not have length',  () => {
+      wrapper.setState({loading: false})
+      wrapper.instance().selectCategory('planets');
+      expect(wrapper.state('loading')).toEqual(true)
+      
+      wrapper.setState({loading: false})
+      wrapper.setState({planets: ['moon']})
+      wrapper.instance().selectCategory('planets');
+      expect(wrapper.state('loading')).toEqual(false);
+
+    })
+
+
+    it('should call fetch data with the correct params', () => {
+      wrapper.instance().fetchData = jest.fn()
+      wrapper.instance().selectCategory('planets');
+      expect(wrapper.instance().fetchData).toHaveBeenCalledWith('planets')
+
     })
 
     it('should set the state of selectedCategory to the selected category', () => {
@@ -50,9 +67,11 @@ describe('App', () => {
       expect(wrapper.state('selectedCategory')).toEqual('planets');
     })
 
-    // it('should call the fetchData method', () => {
-    //   wrapper.instance().selectCategory('planets')
-    // })
+    it('should call the fetchData method', () => {
+      wrapper.instance().fetchData = jest.fn() 
+      wrapper.instance().selectCategory('planets')
+      expect(wrapper.instance().fetchData).toHaveBeenCalled();
+    })
   })
 
   describe('toggleFavorites', () => {

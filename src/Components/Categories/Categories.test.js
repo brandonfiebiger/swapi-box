@@ -8,11 +8,13 @@ describe('Categories', () => {
 
   let wrapper;
   let categories;
-  let mockFn = jest.fn();
+  let mockFn;
 
   beforeEach(() => {
-    categories = [];
+    categories = ['word', 'up', 'money'];
+    mockFn = jest.fn()
     wrapper = shallow(<Categories categories={categories} selectCategory={mockFn}/>);
+
   })
 
   it('should match snapshot', () => {
@@ -31,13 +33,15 @@ describe('Categories', () => {
   })
 
   it('should invoke a selectCategory method on click', () => {
-    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn}/>)
+    wrapper = mount(<Categories categories={categories} selectCategory={mockFn}/>)
     wrapper.find('button').first().simulate('click')
     expect(wrapper.props().selectCategory).toHaveBeenCalled()
 
   })
 
-  it('currentCategory should be highlighted', () => {
-
-  })
+  // it('currentCategory should be highlighted', () => {
+  //   wrapper = mount(<Categories categories={categories} selectCategory={mockFn}/>)
+  //   wrapper.find('button').first().simulate('click');
+  //   expect(wrapper.find('button').first().hasClass('btn-selected')).toEqual(true)
+  // })
 })

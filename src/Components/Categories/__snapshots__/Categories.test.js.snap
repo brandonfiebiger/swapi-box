@@ -4,7 +4,13 @@ exports[`Categories should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Categories
-    categories={Array []}
+    categories={
+        Array [
+            "word",
+            "up",
+            "money",
+          ]
+    }
     selectCategory={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -19,11 +25,76 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [],
+      "children": Array [
+        <button
+          className="btn "
+          name="word"
+          onClick={[Function]}
+>
+          word
+</button>,
+        <button
+          className="btn "
+          name="up"
+          onClick={[Function]}
+>
+          up
+</button>,
+        <button
+          className="btn "
+          name="money"
+          onClick={[Function]}
+>
+          money
+</button>,
+      ],
       "className": "nav",
     },
     "ref": null,
-    "rendered": Array [],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": "word",
+          "className": "btn ",
+          "name": "word",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "word",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": "up",
+          "className": "btn ",
+          "name": "up",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "up",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": "money",
+          "className": "btn ",
+          "name": "money",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "money",
+        "type": "button",
+      },
+    ],
     "type": "nav",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -32,11 +103,76 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [],
+        "children": Array [
+          <button
+            className="btn "
+            name="word"
+            onClick={[Function]}
+>
+            word
+</button>,
+          <button
+            className="btn "
+            name="up"
+            onClick={[Function]}
+>
+            up
+</button>,
+          <button
+            className="btn "
+            name="money"
+            onClick={[Function]}
+>
+            money
+</button>,
+        ],
         "className": "nav",
       },
       "ref": null,
-      "rendered": Array [],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": "word",
+            "className": "btn ",
+            "name": "word",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "word",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": "up",
+            "className": "btn ",
+            "name": "up",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "up",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": "money",
+            "className": "btn ",
+            "name": "money",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "money",
+          "type": "button",
+        },
+      ],
       "type": "nav",
     },
   ],
@@ -62,7 +198,13 @@ exports[`Categories should match snapshot with multiple categories 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Categories
-    categories={Array []}
+    categories={
+        Array [
+            "word",
+            "up",
+            "money",
+          ]
+    }
     selectCategory={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -77,11 +219,76 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [],
+      "children": Array [
+        <button
+          className="btn "
+          name="word"
+          onClick={[Function]}
+>
+          word
+</button>,
+        <button
+          className="btn "
+          name="up"
+          onClick={[Function]}
+>
+          up
+</button>,
+        <button
+          className="btn "
+          name="money"
+          onClick={[Function]}
+>
+          money
+</button>,
+      ],
       "className": "nav",
     },
     "ref": null,
-    "rendered": Array [],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": "word",
+          "className": "btn ",
+          "name": "word",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "word",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": "up",
+          "className": "btn ",
+          "name": "up",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "up",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": "money",
+          "className": "btn ",
+          "name": "money",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "money",
+        "type": "button",
+      },
+    ],
     "type": "nav",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -90,11 +297,76 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [],
+        "children": Array [
+          <button
+            className="btn "
+            name="word"
+            onClick={[Function]}
+>
+            word
+</button>,
+          <button
+            className="btn "
+            name="up"
+            onClick={[Function]}
+>
+            up
+</button>,
+          <button
+            className="btn "
+            name="money"
+            onClick={[Function]}
+>
+            money
+</button>,
+        ],
         "className": "nav",
       },
       "ref": null,
-      "rendered": Array [],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": "word",
+            "className": "btn ",
+            "name": "word",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "word",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": "up",
+            "className": "btn ",
+            "name": "up",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "up",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": "money",
+            "className": "btn ",
+            "name": "money",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "money",
+          "type": "button",
+        },
+      ],
       "type": "nav",
     },
   ],
@@ -120,7 +392,13 @@ exports[`Categories should match snapshot with one category 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Categories
-    categories={Array []}
+    categories={
+        Array [
+            "word",
+            "up",
+            "money",
+          ]
+    }
     selectCategory={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -135,11 +413,76 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [],
+      "children": Array [
+        <button
+          className="btn "
+          name="word"
+          onClick={[Function]}
+>
+          word
+</button>,
+        <button
+          className="btn "
+          name="up"
+          onClick={[Function]}
+>
+          up
+</button>,
+        <button
+          className="btn "
+          name="money"
+          onClick={[Function]}
+>
+          money
+</button>,
+      ],
       "className": "nav",
     },
     "ref": null,
-    "rendered": Array [],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": "word",
+          "className": "btn ",
+          "name": "word",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "word",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": "up",
+          "className": "btn ",
+          "name": "up",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "up",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": "money",
+          "className": "btn ",
+          "name": "money",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "money",
+        "type": "button",
+      },
+    ],
     "type": "nav",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -148,11 +491,76 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [],
+        "children": Array [
+          <button
+            className="btn "
+            name="word"
+            onClick={[Function]}
+>
+            word
+</button>,
+          <button
+            className="btn "
+            name="up"
+            onClick={[Function]}
+>
+            up
+</button>,
+          <button
+            className="btn "
+            name="money"
+            onClick={[Function]}
+>
+            money
+</button>,
+        ],
         "className": "nav",
       },
       "ref": null,
-      "rendered": Array [],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": "word",
+            "className": "btn ",
+            "name": "word",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "word",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": "up",
+            "className": "btn ",
+            "name": "up",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "up",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": "money",
+            "className": "btn ",
+            "name": "money",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "money",
+          "type": "button",
+        },
+      ],
       "type": "nav",
     },
   ],
