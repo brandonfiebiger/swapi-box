@@ -2,3 +2,7 @@ button {
   height: 2rem;
   margin-left: auto;
 }
+
+button:hover {
+  cursor: pointer;
+}

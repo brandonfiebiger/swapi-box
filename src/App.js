@@ -68,6 +68,14 @@ class App extends Component {
     this.setState({ selectedCategory: category });
   }
 
+  selectFavorites = () => {
+    if (!this.state.favorites.length) {
+      alert('You currently don\'t have any favorites saved. Click a card to add or remove it from your favorites.');
+    } else {
+      this.setState({ selectedCategory: 'favorites' });
+    }
+  }
+
   toggleFavorites = (element) => {
     const { favorites } = this.state;
     const clickedCard = element;
@@ -91,12 +99,15 @@ class App extends Component {
         <div className={appLoading}>Loading...</div>
         <Crawl films={films} loading={loading} />
         <main>
-          <Favorites favorites={favorites} />
+          <Favorites favorites={favorites} selectFavorites={this.selectFavorites}/>
           <Categories 
             categories={categories} 
             selectedCategory={selectedCategory}
             selectCategory={this.selectCategory} />
-          <CardContainer category={category} toggleFavorites={this.toggleFavorites} />
+          <CardContainer 
+            category={category} 
+            favorites={favorites}
+            toggleFavorites={this.toggleFavorites} />
         </main>
       </div>
     );
