@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import CleanData from './ApiCalls/helper';
+import CleanData from './helper';
 import Crawl from './Components/Crawl/Crawl.js';
 import Favorites from './Components/Favorites/Favorites.js'
 import Categories from './Components/Categories/Categories';
