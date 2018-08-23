@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import mockFilmResult from './mockFilmResult'
+import mockPeopleResult from './mockPeopleResult'
+import mockVehicleResult from './mockVehicleResult'
 
 import App from './App';
 
@@ -20,6 +22,10 @@ describe('App', () => {
     it('should set state to the appropiate category if fetch works', async () => {
       await wrapper.instance().fetchData('films')
       expect(wrapper.state('films')).toEqual(mockFilmResult)
+      await wrapper.instance().fetchData('people')
+      expect(wrapper.state('people')).toEqual(mockPeopleResult)
+      await wrapper.instance().fetchData('vehicles')
+      expect(wrapper.state('vehicles')).toEqual(mockVehicleResult)
     })
 
     it('should throw an error if the fetch doesnt work', async () => {
@@ -47,6 +53,19 @@ describe('App', () => {
     // it('should call the fetchData method', () => {
     //   wrapper.instance().selectCategory('planets')
     // })
+  })
+
+  describe('toggleFavorites', () => {
+    it('should update the state of favorites with a new favorite', () => {
+      wrapper.instance().toggleFavorites('I love you');
+      expect(wrapper.state('favorites')).toEqual(['I love you'])
+    })
+
+    it('should remove the favorite from the array when input twice', () => {
+      wrapper.instance().toggleFavorites('lets be friends')
+      wrapper.instance().toggleFavorites('lets be friends')
+      expect(wrapper.state('favorites')).toEqual([])
+    })
   })
 })
 
