@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import mockFilmResult from './mockFilmResult'
-import mockPeopleResult from './mockPeopleResult'
-import mockVehicleResult from './mockVehicleResult'
+import mockFilmResult from './ApiCalls/mockData/mockFilmResult'
+import mockPeopleResult from './ApiCalls/mockData/mockPeopleResult'
+import mockVehicleResult from './ApiCalls/mockData/mockVehicleResult'
 
 import App from './App';
 
