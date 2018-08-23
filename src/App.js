@@ -104,7 +104,10 @@ class App extends Component {
             categories={categories} 
             selectedCategory={selectedCategory}
             selectCategory={this.selectCategory} />
-          <CardContainer category={category} toggleFavorites={this.toggleFavorites} />
+          <CardContainer 
+            category={category} 
+            favorites={favorites}
+            toggleFavorites={this.toggleFavorites} />
         </main>
       </div>
     );
