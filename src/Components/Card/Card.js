@@ -9,7 +9,9 @@ const Card = ({ facts, toggleFavorites, selected }) => {
   });
 
   return (
-    <div onClick={ () => toggleFavorites(facts) }>
+    <div 
+      className='Card' 
+      onClick={ () => toggleFavorites(facts) }>
       <svg 
         width='2rem'
         enable-background="new 0 0 426.667 426.667" 
