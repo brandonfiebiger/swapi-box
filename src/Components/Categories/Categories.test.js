@@ -8,10 +8,11 @@ describe('Categories', () => {
 
   let wrapper;
   let categories;
+  let mockFn = jest.fn();
 
   beforeEach(() => {
     categories = [];
-    wrapper = shallow(<Categories categories={categories}/>);
+    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn}/>);
   })
 
   it('should match snapshot', () => {
@@ -29,7 +30,10 @@ describe('Categories', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('should invoke a changeCategory method on click', () => {
+  it('should invoke a selectCategory method on click', () => {
+    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn}/>)
+    wrapper.find('button').first().simulate('click')
+    expect(wrapper.props().selectCategory).toHaveBeenCalled()
 
   })
 
