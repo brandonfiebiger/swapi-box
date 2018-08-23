@@ -8,36 +8,47 @@ describe('Categories', () => {
 
   let wrapper;
   let categories;
-  let mockFn = jest.fn();
-
+  let mockFn;
+  let mockEvent;
+  let selectedCategory;
   beforeEach(() => {
-    categories = [];
-    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn}/>);
+    categories = ['word', 'up', 'money'];
+    mockFn = jest.fn()
+    mockEvent = {target: 'word'}
+    selectedCategory = 'word'
+    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn} selectedCategory={selectedCategory}/>);
+
   })
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should match snapshot with one category', () => {
     categories = ['people'];
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
 
   })
 
   it('should match snapshot with multiple categories', () => {
     categories = ['people', 'planets', 'vehicles'];
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   })
 
   it('should invoke a selectCategory method on click', () => {
-    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn}/>)
-    wrapper.find('button').first().simulate('click')
-    expect(wrapper.props().selectCategory).toHaveBeenCalled()
+    wrapper.find('button').first().simulate('click', mockEvent)
+    expect(mockFn).toHaveBeenCalled()
 
   })
 
-  it('currentCategory should be highlighted', () => {
-
+  it('currentCategory should have a className of btn-selected when button is clicked', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+    wrapper.find('button').first().simulate('click', mockEvent);
+    expect(wrapper.html()).toMatchSnapshot();
+    
+    selectedCategory = 'cheese';
+    wrapper = shallow(<Categories categories={categories} selectCategory={mockFn} selectedCategory={selectedCategory}/>);
+    wrapper.find('button').first().simulate('click', mockEvent);
+    expect(wrapper.html()).toMatchSnapshot();
   })
 })
