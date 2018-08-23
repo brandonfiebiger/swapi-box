@@ -1,16 +1,16 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({ element, toggleFavorites }) => {
+const Card = ({ facts, toggleFavorites }) => {
 
-  const cardElements = Object.keys(element).map( elementKey => (
-    <li>{elementKey}: {element[elementKey]}</li>
+  const cardFacts = Object.keys(facts).map( fact => (
+    <li>{fact}: {facts[fact]}</li>
   ));
 
   return (
     <ul 
-      onClick={() => toggleFavorites(element)} >
-      {cardElements}
+      onClick={() => toggleFavorites(facts)} >
+      {cardFacts}
     </ul>
   )
 }

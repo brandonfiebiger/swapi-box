@@ -4,8 +4,8 @@ import './CardContainer.css';
 import Card from '../Card/Card'
 
 const CardContainer = ({ category, toggleFavorites }) => {
-  const displayedCards = category.map( element => (
-    <Card element={element} toggleFavorites={toggleFavorites} />
+  const displayedCards = category.map( facts => (
+    <Card facts={facts} toggleFavorites={toggleFavorites} />
   ));
 
   return (
