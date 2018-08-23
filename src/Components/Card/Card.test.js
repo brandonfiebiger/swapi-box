@@ -11,7 +11,7 @@ describe('Card', () => {
   let selected;
 
   beforeEach(() => {
-    facts = [];
+    facts = {};
     mockToggleFavorites = jest.fn();
     selected = false;
 
@@ -21,19 +21,26 @@ describe('Card', () => {
   })
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   })
 
   it('should match the snapshot with a fact', () => {
-    facts = [{name: 'test', origin: 'the matrix'}];
+    facts = {name: 'test'};
+    wrapper = shallow(<Card facts={facts} 
+      toggleFavorites={mockToggleFavorites} 
+      selected={selected} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   })
 
   it('should match the snapshot with multiple facts', () => {
-    facts = [{name: 'test1', origin: 'the matrix'}, {name: 'test2', origin: 'the matrix'}];
- 
-    expect(wrapper).toMatchSnapshot();
+    facts = {name: 'test1', origin: 'the matrix'};
+    
+    wrapper = shallow(<Card facts={facts} 
+      toggleFavorites={mockToggleFavorites} 
+      selected={selected} />);
+
+    expect(wrapper.html()).toMatchSnapshot();
   })
 
   it('should call toggleFavorites with the correct parameters when clicked', () => {
@@ -43,12 +50,14 @@ describe('Card', () => {
   })
 
   it('should change color of svg depending on if selected is true or false', () => {
-    expect(wrapper.find('path').props('fill')).toEqual('#f2f2f2');
+    expect(wrapper.find('path').prop('fill')).toEqual('#f2f2f2');
 
     selected = true;
-    wrapper.instance().forceUpdate();
-
-    expect(wrapper.find('path').props('fill')).toEqual('#fac917');
-
+    facts = {name: 'test1', origin: 'the matrix'};
+    wrapper = shallow(<Card facts={facts} 
+      toggleFavorites={mockToggleFavorites} 
+      selected={selected} />);
+      
+    expect(wrapper.find('path').prop('fill')).toEqual('#fac917');
   })
 })

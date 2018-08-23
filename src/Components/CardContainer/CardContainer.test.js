@@ -42,7 +42,7 @@ describe('CardContainer', () => {
     category = [{name: 'test', origin: 'the matrix'}];
     favorites = [{name: 'test', origin: 'the matrix'}];
 
-    wrapper.instance()
+    // wrapper.instance()
 
     expect(selected).toEqual(true);
   })
