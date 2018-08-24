@@ -20,7 +20,10 @@ const Categories = ({ categories, selectedCategory, selectCategory }) => {
   });
 
   return (
-    <nav className='nav'>{buttons}</nav>
+    <nav className='nav'>
+    <img src={require('../../images/logo.jpg')} />
+      {buttons}
+    </nav>
   );
 };
 
