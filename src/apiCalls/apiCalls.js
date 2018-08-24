@@ -19,24 +19,24 @@ export const getHomeworld = async (url) => {
     const response = await fetch(url)
     return await response.json()
   } catch(error) {
-    alert(error.message);
+    alert('Was unable to get homeworld data...');
   }
 }
 
-export const getSpecies = async (url) => {
+export const getSingleSpecies = async (url) => {
   try {
     const response = await fetch(url)
     return await response.json();
   } catch(error) {
-    alert(error.message);
+    alert('Was unable to get species data...');
   }
 }
 
-export const getResidents = async (url) => {
+export const getResident = async (url) => {
   try {
     const response = await fetch(url)
     return await response.json()
   } catch(error) {
-    alert(error.message);
+    alert('Was unable to get residents data...');
   }
 }
