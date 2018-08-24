@@ -1,4 +1,6 @@
-const getData = (data, dataCategory) => {
+import { getHomeworld, getSingleSpecies, getResident } from "./apiCalls/apiCalls";
+
+const cleanData = (data, dataCategory) => {
   let cleanedData = [];
 
   switch(dataCategory) {
@@ -31,40 +33,51 @@ const getFilmData = (data) => {
   ));
 }
 
-const getPeopleData = (data) => {
-  const unresolvedPeople = data.results.map( async person => {
-    const responseHomeworld = await fetch(person.homeworld)
-    const homeworld = await responseHomeworld.json()
-    const responseSpecies = await fetch(person.species)
-    const species = await responseSpecies.json();
-    return { 
-      name: person.name, 
-      homeworld: homeworld.name, 
-      population: homeworld.population,
-      species: species.name
-    };
-  });
+const getPeopleData = async (data) => {
+  const unresolvedPeople = data.results;
+  const peopleWithHomeworld = await getHomeworlds(unresolvedPeople)
+  const peopleWithHomeworldAndSpecies = await getSpecies(peopleWithHomeworld)
 
-  return Promise.all(unresolvedPeople);
+  return Promise.all(peopleWithHomeworldAndSpecies)
+}
+
+const getHomeworlds = async (people) => {
+  return people.map(async person => {
+    const homeworld = await getHomeworld(person.homeworld)
+    return {...person, homeworld: homeworld.name, population: homeworld.population }
+  })
+}
+
+const getSpecies = async (people) => {
+  return people.map(async person => {
+    const resolvedPerson = await person;
+    const species = await getSingleSpecies(resolvedPerson.species)
+    return {name: resolvedPerson.name, homeworld: resolvedPerson.homeworld, population: resolvedPerson.population, species: species.name}
+  })
 }
 
 const getPlanetData = (data) => {
-  const unresolvedPlanets = data.results.map(async planet => {
-    const unresolvedResidents = await planet.residents.map(async resident => {
-      const response = await fetch(resident)
-      const residentInfo = await response.json()
-      return residentInfo.name;
-    })
-    const residents = await Promise.all(unresolvedResidents)
+  const uncleanPlanets = data.results;
+  const unresolvedPlanets = uncleanPlanets.map( async planet => {
+    const residents = await getResidents(planet.residents)
+    const residentsPromise = await Promise.all(residents);
+    const resolvedResidents = await residentsPromise;
     return {
-      name: planet.name,
-      terrain: planet.terrain,
-      population: planet.population,
-      climate: planet.climate,
-      residents: residents.join(', ')
-    }
-  })  
-  return Promise.all(unresolvedPlanets)
+          name: planet.name,
+          terrain: planet.terrain,
+          population: planet.population,
+          climate: planet.climate,
+          residents: resolvedResidents.join(', ')
+        }
+    })  
+    return Promise.all(unresolvedPlanets);
+}
+
+const getResidents = async (residents) => {
+ return  residents.map(async resident => {
+    const residentInfo = await getResident(resident)
+    return residentInfo.name;
+  })
 }
 
 const getVehicleData = (data) => {
@@ -78,4 +91,4 @@ const getVehicleData = (data) => {
   })
 }
 
-export default getData;
+export default cleanData;

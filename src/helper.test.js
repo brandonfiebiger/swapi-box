@@ -1,25 +1,41 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import getData from './helper'
+import cleanData from "./helper";
 
 import mockFilmData from './ApiCalls/mockData/mockFilmData';
 import mockPeopleData from './ApiCalls/mockData/mockPeopleData';
 
-describe('getData', () => {
+describe('cleanData', () => {
   it('should invoke a certain function based on the category', () => {
     const data = {results: []};
     
-    getData(data, 'films');
+    cleanData(data, 'films');
     expect(getFilmData).toHaveBeenCalled();
     
-    getData(data, 'people');
+    cleanData(data, 'people');
     expect(getPeopleData).toHaveBeenCalled();
 
-    getData(data, 'planets');
+    cleanData(data, 'planets');
     expect(getPlanetData).toHaveBeenCalled();
 
-    getData(data, 'vehicles');
+    cleanData(data, 'vehicles');
     expect(getVehicleData).toHaveBeenCalled();
+  })  
+
+  describe('getFilmData', () => {
+
+  })
+
+  describe('getPeopleData', () => {
+  
+  })
+
+  describe('getPlanetData', () => {
+
+  })
+
+  describe('getVehicleData', () => {
+
   })
 })

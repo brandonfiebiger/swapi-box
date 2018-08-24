@@ -13,14 +13,17 @@ const Categories = ({ categories, selectedCategory, selectCategory }) => {
     return <button 
       name={category}
       key={index}
-      className={'btn ' + selectedBtn}
+      className={category + ' btn ' + selectedBtn}
       onClick={(event) => selectCategory(event.target.name)}>
       {category}
     </button>;
   });
 
   return (
-    <nav className='nav'>{buttons}</nav>
+    <nav className='nav'>
+    <img src={require('../../images/logo.jpg')} />
+      {buttons}
+    </nav>
   );
 };
 

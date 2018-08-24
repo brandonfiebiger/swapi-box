@@ -1,16 +1,50 @@
 .nav {
-
+ 
 }
 
 .btn {
-  border: none;
-  color: green;
+  width: 10rem;
+  height: 10rem;
+  border: 10px solid #763638;
+  border-radius: 50%;
+  color: #f2f2f2;
+  text-shadow: 2px 2px #353535;
+  font-size: 2rem;
+  outline: none;
 }
 
 .btn:hover {
+  border: none;
   cursor: pointer;
+  color: #f2f2f2;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.btn:active {
+  box-shadow: 3px 5px 10px #888888;
 }
 
 .btn-selected {
-  color: red;
+  border: 10px solid #ff0000;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.btn-selected:hover {
+  border: 10px solid #ff0000;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.people {
+  background: url(../../images/people-btn.jpg) no-repeat center center;
+  background-size: 12rem;
+}
+
+.planets {
+  background: url(../../images/planets-btn.png) no-repeat center center;
+  background-size: 11rem;
+}
+
+.vehicles {
+  background: url(../../images/vehicles-btn.jpg) no-repeat center center;
+  background-size: 12rem;
 }
