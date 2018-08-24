@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import CleanData from './helper';
+import cleanData from './helper';
 import Crawl from './Components/Crawl/Crawl.js';
 import Favorites from './Components/Favorites/Favorites.js'
 import Categories from './Components/Categories/Categories';
@@ -51,7 +51,7 @@ class App extends Component {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      const cleanedData = await CleanData(data, category);
+      const cleanedData = await cleanData(data, category);
    
       this.setState({ [category]: cleanedData, loading: false });
     } 
