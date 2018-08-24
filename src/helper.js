@@ -1,4 +1,6 @@
-const getData = (data, dataCategory) => {
+import { getHomeworld, getSpecies, getResidents } from "./apiCalls/apiCalls";
+
+const cleanData = (data, dataCategory) => {
   let cleanedData = [];
 
   switch(dataCategory) {
@@ -33,10 +35,8 @@ const getFilmData = (data) => {
 
 const getPeopleData = (data) => {
   const unresolvedPeople = data.results.map( async person => {
-    const responseHomeworld = await fetch(person.homeworld)
-    const homeworld = await responseHomeworld.json()
-    const responseSpecies = await fetch(person.species)
-    const species = await responseSpecies.json();
+    const homeworld = await getHomeworld(person.homeworld);
+    const species = await getSpecies(person.species);
     return { 
       name: person.name, 
       homeworld: homeworld.name, 
@@ -51,8 +51,7 @@ const getPeopleData = (data) => {
 const getPlanetData = (data) => {
   const unresolvedPlanets = data.results.map(async planet => {
     const unresolvedResidents = await planet.residents.map(async resident => {
-      const response = await fetch(resident)
-      const residentInfo = await response.json()
+      const residentInfo = await getResidents(resident);
       return residentInfo.name;
     })
     const residents = await Promise.all(unresolvedResidents)
@@ -78,4 +77,4 @@ const getVehicleData = (data) => {
   })
 }
 
-export default getData;
+export default cleanData;
