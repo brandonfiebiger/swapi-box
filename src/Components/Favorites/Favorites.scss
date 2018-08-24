@@ -1,12 +1,17 @@
 button {
-  height: 2rem;
+  height: 3rem;
   margin-left: auto;
   border: 5px solid #763638;
   border-radius: 10px;
   color: #f2f2f2;
-  text-shadow: 2px 2px #353535;
+  background-color: #BFA4A1;
+  text-shadow: 1.5px 1.5px #353535;
+  font-size: 1.5rem;
+  outline: none;
 }
 
 button:hover {
+  border: 5px solid #BFA4A1;
+  text-shadow: 1px 1px #ff0000;
   cursor: pointer;
 }
