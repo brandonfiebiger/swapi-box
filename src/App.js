@@ -68,15 +68,15 @@ class App extends Component {
       films, 
       loading } = this.state;
     const category = this.state[selectedCategory] || []; 
-    let appLoading = 'hide-loading';
-    loading ? appLoading = 'show-loading' : appLoading;
+    let appLoading;
+    loading ? appLoading = 'show-loading' : appLoading = 'hide-loading';
     
     return (
       <div className='App'>
         <div className={appLoading}>Loading...</div>
         <Crawl films={films} />
         <header>
-          <img src={require('./images/logo.png')} />
+          <img src={require('./images/logo.png')} alt='SWAPIbox' />
           <Categories 
             categories={categories} 
             selectedCategory={selectedCategory}
