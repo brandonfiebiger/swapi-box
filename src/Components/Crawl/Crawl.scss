@@ -1,13 +1,16 @@
 
 .crawler-container {
+  position: fixed;
   display: flex;
   justify-content: center;
-  width: 20rem;
+  width: 100%;
   border: 1px solid cadetblue;
   height: 100vh;
   perspective: 300px;
   overflow: hidden;
-  background: black;
+  background: url(../../images/background.png) no-repeat center center;
+  background-size: 100%;
+  z-index: -10;
 }
 
 .crawler {
@@ -15,11 +18,11 @@
   font-size: 2rem;
   width: 100%;
   animation: crawl 60s infinite linear;
-  color: yellow;
+  color: #F9C835;
 }
 
 .crawler p {
-  width: 100%
+  width: 100%;
 }
 
 @keyframes crawl {
@@ -36,5 +39,5 @@
 }
 
 .film-end {
-  margin-bottom: 200vh;
+  margin-bottom: 1200px;
 }
