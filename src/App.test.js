@@ -40,7 +40,7 @@ describe('App', () => {
     });
 
     it.skip('should call the fetchData method', () => {
-      fetchData = jest.fn() ;
+      const fetchData = jest.fn() ;
       wrapper.instance().selectCategory('planets');
       expect(fetchData).toHaveBeenCalled();
     });

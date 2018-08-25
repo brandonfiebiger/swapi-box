@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   "count": 7,
   "next": null,

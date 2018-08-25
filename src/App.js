@@ -74,7 +74,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className={appLoading}>Loading...</div>
-        <Crawl films={films} loading={loading} />
+        <Crawl films={films} />
         <header>
           <img src={require('./images/logo.png')} />
           <Categories 

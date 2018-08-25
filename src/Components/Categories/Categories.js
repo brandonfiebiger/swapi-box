@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Categories.css';
 
 const Categories = ({ categories, selectedCategory, selectCategory }) => {
