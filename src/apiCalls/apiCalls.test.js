@@ -36,12 +36,9 @@ describe('apiCalls', () => {
     })
   
     it('throws an error if status code is not ok', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.reject({
-        status: 400,
-        json: () => Promise.resolve(mockPeopleData)
-      }))
-  
-      await expect(fetchData('jgorw')).toEqual(Error(''))
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject(new Error('yu fucked up')))
+      const error = fetchData('jgorw')
+      await expect(error).toEqual(Error(''))
     })
 
   })
