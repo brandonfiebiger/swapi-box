@@ -1,37 +1,38 @@
+@import "variables.scss";
+
 .nav {
- 
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ width: 55%;
 }
 
 .btn {
   width: 10rem;
   height: 10rem;
-  border: 10px solid #763638;
+  border: 10px solid $button-border;
   border-radius: 50%;
   color: #f2f2f2;
-  text-shadow: 2px 2px #353535;
+  text-shadow: 2px 2px $shadow-color;
   font-size: 2rem;
   outline: none;
-}
-
-.btn:hover {
-  border: none;
-  cursor: pointer;
-  color: #f2f2f2;
-  text-shadow: 2px 2px #ff0000;
-}
-
-.btn:active {
-  box-shadow: 3px 5px 10px #888888;
+  &:hover {
+    border: none;
+    cursor: pointer;
+    text-shadow: 2px 2px $red-highlight;
+  }
+  &:active {
+    box-shadow: 3px 5px 10px #888888;
+  }
 }
 
 .btn-selected {
-  border: 10px solid #ff0000;
-  text-shadow: 2px 2px #ff0000;
-}
-
-.btn-selected:hover {
-  border: 10px solid #ff0000;
-  text-shadow: 2px 2px #ff0000;
+  border: 10px solid $red-highlight;
+  text-shadow: 2px 2px $red-highlight;
+  &:hover {
+    border: 10px solid $red-highlight;
+    text-shadow: 2px 2px $red-highlight;
+  }
 }
 
 .people {
@@ -47,4 +48,22 @@
 .vehicles {
   background: url(../../images/vehicles-btn.jpg) no-repeat center center;
   background-size: 12rem;
+}
+
+@media only screen and (max-width: 1225px) { 
+  .nav {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1045px) { 
+  .nav {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 575px) { 
+  .nav {
+    flex-direction: column;
+  }
 }

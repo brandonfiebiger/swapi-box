@@ -1,17 +1,30 @@
+@import "variables.scss";
+
 button {
   height: 3rem;
   margin-left: auto;
-  border: 5px solid #763638;
+  border: 5px solid $button-border;
   border-radius: 10px;
   color: #f2f2f2;
-  background-color: #BFA4A1;
-  text-shadow: 1.5px 1.5px #353535;
+  background-color: $button-color;
+  text-shadow: 1.5px 1.5px $shadow-color;
   font-size: 1.5rem;
   outline: none;
+  &:hover {
+    border: 5px solid $button-color;
+    text-shadow: 1px 1px $red-highlight;
+    cursor: pointer;
+  }
 }
 
-button:hover {
-  border: 5px solid #BFA4A1;
-  text-shadow: 1px 1px #ff0000;
-  cursor: pointer;
+@media only screen and (max-width: 1225px) { 
+  button {
+    margin-left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1045px) { 
+  button {
+    margin: 1rem auto;
+  }
 }

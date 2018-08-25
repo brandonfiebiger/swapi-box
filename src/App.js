@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { fetchData } from './apiCalls/apiCalls.js'
+import { fetchData } from './apiCalls/apiCalls.js';
 import Crawl from './Components/Crawl/Crawl.js';
-import Favorites from './Components/Favorites/Favorites.js'
+import Favorites from './Components/Favorites/Favorites.js';
 import Categories from './Components/Categories/Categories';
 import CardContainer from './Components/CardContainer/CardContainer';
 
@@ -31,9 +31,9 @@ class App extends Component {
   selectCategory = (category) => {
     if (!this.state[category].length) {
       this.setState({ loading: true }, async() => {
-        const cleanedData = await fetchData(category)
+        const cleanedData = await fetchData(category);
         this.setState({ [category]: cleanedData, loading: false });
-      })
+      });
     }
     this.setState({ selectedCategory: category });
   }
@@ -51,7 +51,9 @@ class App extends Component {
     const clickedCard = element;
 
     if (favorites.includes(clickedCard)) {
-      const filteredFavorites = favorites.filter( favorite => favorite !== clickedCard)
+      const filteredFavorites = favorites.filter( favorite => (
+        favorite !== clickedCard
+      ));
       this.setState({ favorites: filteredFavorites });
     } else {
       this.setState({ favorites: [...favorites, clickedCard] });
@@ -59,21 +61,31 @@ class App extends Component {
   }
 
   render() {
-    const { favorites, categories, selectedCategory, films, loading } = this.state;
+    const { 
+      favorites, 
+      categories, 
+      selectedCategory, 
+      films, 
+      loading } = this.state;
     const category = this.state[selectedCategory] || []; 
-    let appLoading = 'hide-loading';
-    loading ? appLoading = 'show-loading' : appLoading;
+    let appLoading;
+    loading ? appLoading = 'show-loading' : appLoading = 'hide-loading';
     
     return (
       <div className='App'>
         <div className={appLoading}>Loading...</div>
-        <Crawl films={films} loading={loading} />
-        <main>
-          <Favorites favorites={favorites} selectFavorites={this.selectFavorites}/>
+        <Crawl films={films} />
+        <header>
+          <img src={require('./images/logo.png')} alt='SWAPIbox' />
           <Categories 
             categories={categories} 
             selectedCategory={selectedCategory}
             selectCategory={this.selectCategory} />
+          <Favorites 
+            favorites={favorites} 
+            selectFavorites={this.selectFavorites}/>
+        </header>
+        <main>
           <CardContainer 
             category={category} 
             favorites={favorites}

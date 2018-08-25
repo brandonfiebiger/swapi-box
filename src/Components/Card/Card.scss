@@ -1,3 +1,6 @@
-.Card:hover {
+.Card {
+  color: #fff;
+  &:hover {
   cursor: pointer;
+  }
 }

@@ -1,13 +1,13 @@
-
 .crawler-container {
+  position: fixed;
   display: flex;
   justify-content: center;
-  width: 20rem;
-  border: 1px solid cadetblue;
+  width: 100%;
   height: 100vh;
   perspective: 300px;
   overflow: hidden;
-  background: black;
+  background: url(../../images/background.png) no-repeat;
+  z-index: -10;
 }
 
 .crawler {
@@ -15,11 +15,13 @@
   font-size: 2rem;
   width: 100%;
   animation: crawl 60s infinite linear;
-  color: yellow;
-}
-
-.crawler p {
-  width: 100%
+  color: #F9C835;
+  p {
+    width: 100%;
+  }
+  .film-end {
+    margin-bottom: 1200px;
+  }
 }
 
 @keyframes crawl {
@@ -33,8 +35,4 @@
     transform: rotateX(25deg) translateZ(-2500px)
 
   }
-}
-
-.film-end {
-  margin-bottom: 200vh;
 }

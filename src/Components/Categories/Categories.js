@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Categories.css';
 
 const Categories = ({ categories, selectedCategory, selectCategory }) => {
@@ -21,7 +22,6 @@ const Categories = ({ categories, selectedCategory, selectCategory }) => {
 
   return (
     <nav className='nav'>
-    <img src={require('../../images/logo.jpg')} />
       {buttons}
     </nav>
   );

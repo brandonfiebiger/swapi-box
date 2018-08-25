@@ -1,19 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import mockFilmResult from '../../mockFilmResult'
+import { shallow } from 'enzyme';
 
 import Crawl from './Crawl';
 
 describe('Crawl', () => {
-
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(<Crawl films={mockFilmResult}/>);
-  })
-
+  
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
+    const films = [];
+    const wrapper = shallow(<Crawl films={films}/>);
+    
+    expect(wrapper.html()).toMatchSnapshot();
   });
-})
+
+  it('should match snapshot with one film', () => {
+    const films = [{ title: 'test1', crawl: 'text', date: '1'}];
+    const wrapper = shallow(<Crawl films={films}/>);
+    
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('should match snapshot with multiple films', () => {
+    const films = [
+      { title: 'test1', crawl: 'text', date: '1' }, 
+      { title: 'test2', crawl: 'text', date: '2' }
+    ];
+    const wrapper = shallow(<Crawl films={films}/>);
+    
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+});
