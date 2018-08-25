@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Categories currentCategory should have a className of btn-selected when button is clicked 1`] = `"<nav class=\\"nav\\"><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
 
-exports[`Categories currentCategory should have a className of btn-selected when button is clicked 1`] = `"<nav class=\\"nav\\"><img src=\\"logo.jpg\\"/><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
+exports[`Categories currentCategory should have a className of btn-selected when button is clicked 2`] = `"<nav class=\\"nav\\"><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
 
-exports[`Categories currentCategory should have a className of btn-selected when button is clicked 2`] = `"<nav class=\\"nav\\"><img src=\\"logo.jpg\\"/><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
+exports[`Categories currentCategory should have a className of btn-selected when button is clicked 3`] = `"<nav class=\\"nav\\"><button name=\\"word\\" class=\\"word btn \\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
 
-exports[`Categories currentCategory should have a className of btn-selected when button is clicked 3`] = `"<nav class=\\"nav\\"><img src=\\"logo.jpg\\"/><button name=\\"word\\" class=\\"word btn \\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
+exports[`Categories should match snapshot 1`] = `"<nav class=\\"nav\\"><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
 
-exports[`Categories should match snapshot 1`] = `"<nav class=\\"nav\\"><img src=\\"logo.jpg\\"/><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
+exports[`Categories should match snapshot with multiple categories 1`] = `"<nav class=\\"nav\\"><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
 
-exports[`Categories should match snapshot with multiple categories 1`] = `"<nav class=\\"nav\\"><img src=\\"logo.jpg\\"/><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
-
-exports[`Categories should match snapshot with one category 1`] = `"<nav class=\\"nav\\"><img src=\\"logo.jpg\\"/><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
-
+exports[`Categories should match snapshot with one category 1`] = `"<nav class=\\"nav\\"><button name=\\"word\\" class=\\"word btn btn-selected\\">word</button><button name=\\"up\\" class=\\"up btn \\">up</button><button name=\\"money\\" class=\\"money btn \\">money</button></nav>"`;
