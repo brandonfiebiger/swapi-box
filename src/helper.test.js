@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 
 import cleanData from "./helper";
 
-import mockFilmData from './ApiCalls/mockData/mockFilmData';
-import mockPeopleData from './ApiCalls/mockData/mockPeopleData';
+import mockFilmData from './apiCalls/mockFilmData';
+import mockPeopleData from './apiCalls/mockPeopleData';
 
 describe('cleanData', () => {
   it('should invoke a certain function based on the category', () => {
