@@ -74,15 +74,18 @@ class App extends Component {
     return (
       <div className='App'>
         <div className={appLoading}>Loading...</div>
-        <main>
-          <Crawl films={films} loading={loading} />
-          <Favorites 
-            favorites={favorites} 
-            selectFavorites={this.selectFavorites}/>
+        <Crawl films={films} loading={loading} />
+        <header>
+          <img src={require('./images/logo.png')} />
           <Categories 
             categories={categories} 
             selectedCategory={selectedCategory}
             selectCategory={this.selectCategory} />
+          <Favorites 
+            favorites={favorites} 
+            selectFavorites={this.selectFavorites}/>
+        </header>
+        <main>
           <CardContainer 
             category={category} 
             favorites={favorites}
