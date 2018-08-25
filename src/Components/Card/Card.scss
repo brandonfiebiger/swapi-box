@@ -1,6 +1,29 @@
 .Card {
   color: #fff;
+  background: blanchedalmond;
+  border: 1px solid cadetblue;
+  height: 20rem;
+  width: 15rem;
+  color: cadetblue;
+  margin-left: 6rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
   &:hover {
   cursor: pointer;
   }
+}
+
+ul {
+ margin: auto 0;
+ height: 13rem;
+ line-height: 3rem;
+}
+
+.name {
+  font-size: 1.5rem;
+}
+
+.residents {
+  line-height: 0rem;
 }
