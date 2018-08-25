@@ -17,22 +17,6 @@ describe('App', () => {
   it('should match snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
-
-  describe('fetchData', () => {
-    it.skip('should set state to the appropiate category if fetch works', async () => {
-      await wrapper.instance().fetchData('films')
-      expect(wrapper.state('films')).toEqual(mockFilmResult)
-      await wrapper.instance().fetchData('people')
-      expect(wrapper.state('people')).toEqual(mockPeopleResult)
-      await wrapper.instance().fetchData('vehicles')
-      expect(wrapper.state('vehicles')).toEqual(mockVehicleResult)
-    })
-
-    it('should throw an error if the fetch doesnt work', async () => {
-      await wrapper.instance().fetchData('nope')
-      expect(wrapper.state('error')).toEqual(true)
-    })
-  })
   
   describe('selectCategory', () => {
     it('should set state of selectedCategory to category being passed in', () => {
@@ -53,19 +37,12 @@ describe('App', () => {
 
     })
 
-    it('should call fetch data with the correct params', () => {
-      wrapper.instance().fetchData = jest.fn()
-      wrapper.instance().selectCategory('planets');
-      expect(wrapper.instance().fetchData).toHaveBeenCalledWith('planets')
-
-    })
-
     it('should set the state of selectedCategory to the selected category', () => {
       wrapper.instance().selectCategory('planets');
       expect(wrapper.state('selectedCategory')).toEqual('planets');
     })
 
-    it('should call the fetchData method', () => {
+    it.skip('should call the fetchData method', () => {
       wrapper.instance().fetchData = jest.fn() 
       wrapper.instance().selectCategory('planets')
       expect(wrapper.instance().fetchData).toHaveBeenCalled();
@@ -73,7 +50,8 @@ describe('App', () => {
   })
 
   describe('selectFavorites', () => {
-    it.skip('should give an alert if there are no favorites', () => {
+    it('should give an alert if there are no favorites', () => {
+      window.alert = jest.fn();
       wrapper.instance().selectFavorites();
       expect(window.alert).toHaveBeenCalled();
     })

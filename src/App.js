@@ -67,8 +67,8 @@ class App extends Component {
     return (
       <div className='App'>
         <div className={appLoading}>Loading...</div>
-        <Crawl films={films} loading={loading} />
         <main>
+          <Crawl films={films} loading={loading} />
           <Favorites favorites={favorites} selectFavorites={this.selectFavorites}/>
           <Categories 
             categories={categories} 
