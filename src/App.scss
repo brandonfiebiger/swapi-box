@@ -35,3 +35,9 @@ header {
   width: calc(100% - 4rem);
   padding: 2rem;
 }
+
+@media only screen and (max-width: 1045px) { 
+  img {
+    margin: 0 auto;
+  }
+}

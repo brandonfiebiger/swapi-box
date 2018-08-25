@@ -2,7 +2,8 @@
 
 .nav {
  display: flex;
- align-content: space-between;
+ flex-wrap: wrap;
+ justify-content: space-between;
  width: 55%;
 }
 
@@ -47,4 +48,22 @@
 .vehicles {
   background: url(../../images/vehicles-btn.jpg) no-repeat center center;
   background-size: 12rem;
+}
+
+@media only screen and (max-width: 1225px) { 
+  .nav {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1045px) { 
+  .nav {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 575px) { 
+  .nav {
+    flex-direction: column;
+  }
 }
