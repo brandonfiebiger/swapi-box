@@ -1,5 +1,5 @@
-/* eslint-disable */
-module.exports = {
+
+export const mockFilmData = {
   "count": 7,
   "next": null,
   "previous": null,
