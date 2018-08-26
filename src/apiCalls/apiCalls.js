@@ -10,6 +10,7 @@ export const fetchData = async (category) => {
     return cleanedData;
   } 
   catch(error) {
+    // throw new Error(error.message)
     alert('Error fetching initial data');
   }
 }
@@ -19,7 +20,7 @@ export const getHomeworld = async (url) => {
     const response = await fetch(url)
     return await response.json()
   } catch(error) {
-    alert('Was unable to get homeworld data...');
+    throw new Error('failed to fetch')
   }
 }
 
@@ -28,7 +29,7 @@ export const getSingleSpecies = async (url) => {
     const response = await fetch(url)
     return await response.json();
   } catch(error) {
-    alert('Was unable to get species data...');
+    throw new Error('failed to fetch')
   }
 }
 
@@ -37,6 +38,6 @@ export const getResident = async (url) => {
     const response = await fetch(url)
     return await response.json()
   } catch(error) {
-    alert('Was unable to get residents data...');
+    throw new Error('failed to fetch')
   }
 }
