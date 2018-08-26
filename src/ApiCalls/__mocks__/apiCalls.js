@@ -2,7 +2,7 @@ import mockPeopleData from '../mockPeopleData'
 // import { getSingleSpecies } from '../apiCalls';
 
 export const getHomeworld = jest.fn()
-  .mockImplementationOnce(() => ({
+  .mockImplementation(() => ({
       "name": "Stewjon",
       "rotation_period": "unknown",
       "orbital_period": "unknown",
@@ -22,7 +22,7 @@ export const getHomeworld = jest.fn()
   }))
 
   export const getSingleSpecies = jest.fn()
-    .mockImplementationOnce(() => ({
+    .mockImplementation(() => ({
         "name": "Droid",
         "classification": "artificial",
         "designation": "sentient",

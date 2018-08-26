@@ -28,16 +28,16 @@ describe('cleanData', () => {
     });
   });
 
-  describe.skip('getPeopleData', () => {
+  describe('getPeopleData', () => {
     it('should return clean people data', async () => {
       const data = mockPeopleData;
       // console.log(data)
       const cleanedData = await getPeopleData(data);
-      expect(cleanedData).toHaveLength();
+      expect(cleanedData).toHaveLength(10);
     });
   });
 
-  describe.only('getPlanetData', () => {
+  describe('getPlanetData', () => {
     it('should return clean planet data', async () => {
       const data = dataToFeedForPlanets;
       console.log(data)
