@@ -3,7 +3,8 @@ import {
   getSingleSpecies, 
   getResident } from "./apiCalls/apiCalls";
 
-const cleanData = (data, dataCategory) => {
+
+export const cleanData = (data, dataCategory) => {
   let cleanedData = [];
 
   switch (dataCategory) {
@@ -36,7 +37,8 @@ const getFilmData = (data) => {
   ));
 };
 
-const getPeopleData = async (data) => {
+export const getPeopleData = async (data) => {
+  // console.log(data)
   const unresolvedPeople = data.results;
   const peopleWithHomeworld = await getHomeworlds(unresolvedPeople);
   const peopleWithHomeworldAndSpecies = await getSpecies(peopleWithHomeworld);
@@ -47,6 +49,7 @@ const getPeopleData = async (data) => {
 const getHomeworlds = async (people) => {
   return people.map(async person => {
     const homeworld = await getHomeworld(person.homeworld);
+    // console.log(homeworld)
     return {
       ...person, 
       homeworld: homeworld.name, 
@@ -66,7 +69,7 @@ const getSpecies = async (people) => {
   });
 };
 
-const getPlanetData = (data) => {
+export const getPlanetData = (data) => {
   const uncleanPlanets = data.results;
   const unresolvedPlanets = uncleanPlanets.map( async planet => {
     const residents = await getResidents(planet.residents);
