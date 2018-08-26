@@ -13,6 +13,7 @@ export const cleanData = (data, dataCategory) => {
       break;
     case 'people':
       cleanedData = getPeopleData(data);
+      console.log(cleanedData)
       break;
     case 'planets':
       cleanedData = getPlanetData(data);
@@ -27,7 +28,7 @@ export const cleanData = (data, dataCategory) => {
   return cleanedData;
 };
 
-const getFilmData = (data) => {
+export const getFilmData = (data) => {
   return data.results.map( film => (
     {
       crawl: film.opening_crawl,
@@ -46,7 +47,7 @@ export const getPeopleData = async (data) => {
   return Promise.all(peopleWithHomeworldAndSpecies);
 };
 
-const getHomeworlds = async (people) => {
+export const getHomeworlds = async (people) => {
   return people.map(async person => {
     const homeworld = await getHomeworld(person.homeworld);
     // console.log(homeworld)
@@ -57,7 +58,7 @@ const getHomeworlds = async (people) => {
   });
 };
 
-const getSpecies = async (people) => {
+export const getSpecies = async (people) => {
   return people.map(async person => {
     const resolvedPerson = await person;
     const species = await getSingleSpecies(resolvedPerson.species);
@@ -86,14 +87,14 @@ export const getPlanetData = (data) => {
   return Promise.all(unresolvedPlanets);
 };
 
-const getResidents = async (residents) => {
+export const getResidents = async (residents) => {
   return  residents.map(async resident => {
     const residentInfo = await getResident(resident);
     return residentInfo.name;
   });
 };
 
-const getVehicleData = (data) => {
+export const getVehicleData = (data) => {
   return data.results.map(vehicle => {
     return {
       name: vehicle.name,
