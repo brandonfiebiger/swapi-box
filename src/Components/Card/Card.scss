@@ -1,18 +1,16 @@
 @import 'variables.scss';
 
-
 .Card {
+  display: flex;
+  flex-direction: column;
   background: #A1ABB6;
   border: 5px solid $button-border;
   border-radius: 10px;
-  // height: 20rem;
   width: 15rem;
-  color: #f2f2f2;
   margin: 0 1;
   margin-left: 5rem;
   margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
+  color: #f2f2f2;
   opacity: 0.95;
   text-shadow: 2px 2px $shadow-color;
   &:hover {
@@ -28,34 +26,28 @@
 }
 
 ul {
- list-style-type: none;
- margin: 1rem;
- padding: 0;
- li {
-   margin-bottom: .5rem;
-   span {
-     color: #E3D6D3;
-    text-decoration-line: underline;
+  margin: 1rem;
+  padding: 0;
+  list-style-type: none;
+  li {
+    margin-bottom: .5rem;
+    span {
+      color: #E3D6D3;
+      text-decoration-line: underline;
    }
  }
 }
 
 .name {
+  margin-bottom: 1rem;
   color: #E3D6D3;
   font-size: 2rem;
-  margin-bottom: 1rem;
 }
 
 .residents {
-  overflow: scroll;
-  height: 3rem;
+  height: 6rem;
   line-height: 2rem;
-  border: 1px solid cadetblue;
-  margin-right: 2rem;
-  height: 4rem;
-  margin-bottom: 5rem;
-  padding: .3rem;
-  border-radius: 10px;
+  overflow: auto;
 }
 
 @media screen and (max-width: 900px) {
