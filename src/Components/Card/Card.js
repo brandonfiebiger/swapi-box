@@ -8,11 +8,11 @@ const Card = ({ facts, toggleFavorites, selected }) => {
   const cardFacts = Object.keys(facts).map( (fact, index) => {
     selected ? fillColor = '#fac917' : fillColor = '#f2f2f2';
     if (fact === 'name') {
-      return <li className={fact} key={index}>{facts[fact]}</li>
+      return <li className={fact} key={index}>{facts[fact]}</li>;
     } else if (fact === 'residents' && !facts[fact].length) {
-      return 
+      return <li className={fact} key={index}><span>{fact}:</span> none</li>;
     } else {
-      return <li className={fact} key={index}><span>{fact}:</span> {facts[fact]}</li>
+      return <li className={fact} key={index}><span>{fact}:</span> {facts[fact]}</li>;
     }
   });
 
@@ -41,7 +41,10 @@ const Card = ({ facts, toggleFavorites, selected }) => {
 export default Card;
 
 Card.propTypes = {
-  facts: PropTypes.objectOf(PropTypes.string),
+  facts: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ])),
   toggleFavorites: PropTypes.func,
   selected: PropTypes.bool
 };

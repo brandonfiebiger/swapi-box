@@ -7,7 +7,7 @@ describe('App', () => {
   let wrapper;
 
   beforeEach(() => {
-    localStorage.clear()
+    localStorage.clear();
     wrapper = shallow(<App />);
   });
 
@@ -47,12 +47,6 @@ describe('App', () => {
     it('should set the state of selectedCategory to the selected category', () => {
       wrapper.instance().selectCategory('planets');
       expect(wrapper.state('selectedCategory')).toEqual('planets');
-    });
-
-    it.skip('should call the fetchData method', () => {
-      const fetchData = jest.fn() ;
-      wrapper.instance().selectCategory('planets');
-      expect(fetchData).toHaveBeenCalled();
     });
 
   });
