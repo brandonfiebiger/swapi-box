@@ -39,7 +39,6 @@ export const getFilmData = (data) => {
 };
 
 export const getPeopleData = async (data) => {
-  // console.log(data)
   const unresolvedPeople = data.results;
   const peopleWithHomeworld = await getHomeworlds(unresolvedPeople);
   const peopleWithHomeworldAndSpecies = await getSpecies(peopleWithHomeworld);
@@ -50,7 +49,6 @@ export const getPeopleData = async (data) => {
 export const getHomeworlds = async (people) => {
   return people.map(async person => {
     const homeworld = await getHomeworld(person.homeworld);
-    // console.log(homeworld)
     return {
       ...person, 
       homeworld: homeworld.name, 
