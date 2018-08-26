@@ -260,3 +260,18 @@ export const dataToFeedForPlanets = {
         }
     ]
 }
+
+export const mockGetPlanetDataResult = [{"climate": "temperate", "name": "Alderaan", "population": "2000000000", "residents": "Leia Organa, Leia Organa, Leia Organa", "terrain": "grasslands, mountains"}, {"climate": "temperate, tropical", "name": "Yavin IV", "population": "1000", "residents": "", "terrain": "jungle, rainforests"}, {"climate": "frozen", "name": "Hoth", "population": "unknown", "residents": "", "terrain": "tundra, ice caves, mountain ranges"}, {"climate": "murky", "name": "Dagobah", "population": "unknown", "residents": "", "terrain": "swamp, jungles"}, {"climate": "temperate", "name": "Bespin", "population": "6000000", "residents": "Leia Organa", "terrain": "gas giant"}, {"climate": "temperate", "name": "Endor", "population": "30000000", "residents": "Leia Organa", "terrain": "forests, mountains, lakes"}, {"climate": "temperate", "name": "Naboo", "population": "4500000000", "residents": "Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa, Leia Organa", "terrain": "grassy hills, swamps, forests, mountains"}, {"climate": "temperate", "name": "Coruscant", "population": "1000000000000", "residents": "Leia Organa, Leia Organa, Leia Organa", "terrain": "cityscape, mountains"}, {"climate": "temperate", "name": "Kamino", "population": "1000000000", "residents": "Leia Organa, Leia Organa, Leia Organa", "terrain": "ocean"}, {"climate": "temperate, arid", "name": "Geonosis", "population": "100000000000", "residents": "Leia Organa", "terrain": "rock, desert, mountain, barren"}]
+
+export const dataToFeedForResidents = [
+    "https://swapi.co/api/people/1/",
+    "https://swapi.co/api/people/2/",
+    "https://swapi.co/api/people/4/",
+    "https://swapi.co/api/people/6/",
+    "https://swapi.co/api/people/7/",
+    "https://swapi.co/api/people/8/",
+    "https://swapi.co/api/people/9/",
+    "https://swapi.co/api/people/11/",
+    "https://swapi.co/api/people/43/",
+    "https://swapi.co/api/people/62/"
+]

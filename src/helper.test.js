@@ -1,23 +1,29 @@
-import { cleanData, getPeopleData, getPlanetData } from "./helper";
-import { mockFilmData } from './apiCalls/mockFilmData';
-import  mockPeopleData from './apiCalls/mockPeopleData';
-import { mockPlanetData, dataToFeedForPlanets } from './apiCalls/mockPlanetData';
+import { cleanData, getPeopleData, getPlanetData, getVehicleData, getResidents, getFilmData } from "./helper";
+import { mockVehicleData, mockVehicleResult } from './apiCalls/mockVehicleData'
+import  { mockPeopleData, mockPeopleResult, peopleResultFromGetPeopleData } from './apiCalls/mockPeopleData';
+import { mockFilmData, mockFilmResult, filmResultafterCleanData } from './apiCalls/mockFilmData';
+import { mockPlanetData, dataToFeedForPlanets, mockGetPlanetDataResult, dataToFeedForResidents } from './apiCalls/mockPlanetData';
 jest.mock('./apiCalls/apiCalls.js')
 
 describe('cleanData', () => {
-  it.skip('should invoke a certain function based on the category', () => {
-    cleanData(data, 'films')
-    expect(getFilmData).toHaveBeenCalled();
-    
-    cleanData(data, 'people');
-    expect(getPeopleData).toHaveBeenCalled();
+  it('should return the correct data based on category', async() => {
+    const cleanedFilmData = cleanData(mockFilmData, 'films')
+    expect(cleanedFilmData).toEqual(filmResultafterCleanData)
 
-    cleanData(data, 'planets');
-    expect(getPlanetData).toHaveBeenCalled();
+    const cleanedPeopleData = await cleanData(mockPeopleData, 'people');
+    expect(cleanedPeopleData).toEqual(peopleResultFromGetPeopleData)
 
-    cleanData(data, 'vehicles');
-    expect(getVehicleData).toHaveBeenCalled();
+    const cleanedPlanetData = await cleanData(dataToFeedForPlanets, 'planets');
+    expect(cleanedPlanetData).toEqual(mockGetPlanetDataResult)
+
+    const cleanedVehicles = cleanData(mockVehicleData, 'vehicles');
+    expect(cleanedVehicles).toEqual(mockVehicleResult);
   }); 
+
+  it('should default to returning an empty array', () => {
+    const emptyArray = cleanData()
+    expect(emptyArray).toEqual([])
+  })
 
   describe('getFilmData', () => {
     it('should return clean film data', () => {
@@ -34,27 +40,28 @@ describe('cleanData', () => {
       // console.log(data)
       const cleanedData = await getPeopleData(data);
       expect(cleanedData).toHaveLength(10);
+      expect(cleanedData).toEqual(peopleResultFromGetPeopleData)
     });
   });
 
   describe('getPlanetData', () => {
     it('should return clean planet data', async () => {
       const data = dataToFeedForPlanets;
-      console.log(data)
      
       const cleanedData = await getPlanetData(dataToFeedForPlanets);
   
       expect(cleanedData).toHaveLength(10);
+      expect(cleanedData).toEqual(mockGetPlanetDataResult)
+
     });
   });
 
-  describe.skip('getVehicleData', () => {
+  describe('getVehicleData', () => {
     it('should return clean vehicle data', () => {
       const data = mockVehicleData;
       const cleanedData = cleanData(data, 'vehicles');
   
-      expect(cleanedData).toHaveLength();
+      expect(cleanedData).toHaveLength(10);
     });
   });
-
 });

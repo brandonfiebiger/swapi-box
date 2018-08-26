@@ -32,15 +32,8 @@ describe('apiCalls', () => {
       expect(data).toEqual(peopleResultAfterFetchData);
     });
   
-    it('throws an error if status code is not ok', async () => {
-      window.fetch = jest.fn().mockImplementation(() => 
-        Promise.resolve({ status: 500 }) 
-      );
-      await expect(fetchData('asdf')).rejects.toEqual(Error('Error fetching initial data'));
-    });
-
   });
-
+  
   describe('getHomeworld', () => {
     it('should return the correct planet data', async () => {
       window.fetch = jest.fn().mockImplementation( async () => Promise.resolve({
@@ -49,6 +42,12 @@ describe('apiCalls', () => {
       }));
       const data = await getHomeworld("https://swapi.co/api/planets/1/");
       expect(data).toEqual(mockPlanetResult);
+      
+      it('throws an error if status code is not ok', async () => {
+        const expected = new Error('failed to fetch')
+        window.fetch = jest.fn().mockImplementation(() => Promise.reject('failed to fetch'));
+        await expect( getHomeworld('films')).rejects.toEqual(expected);
+      });
     });
 
     // it('should throw an error is status code is not ok', () => {
@@ -67,10 +66,11 @@ describe('apiCalls', () => {
       expect(data).toEqual(mockSpeciesResult);
     });
 
-// it('should throw an error is status code is not ok', () => {
-
-// });
-    
+    it('throws an error if status code is not ok', async () => {
+      const expected = new Error('failed to fetch')
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject('failed to fetch'));
+      await expect( getSingleSpecies('films')).rejects.toEqual(expected);
+    });
   });
 
   describe('getResident', () => {
@@ -83,9 +83,11 @@ describe('apiCalls', () => {
       expect(data).toEqual(mockResidentResult);
     });
 
-// it('should throw an error is status code is not ok', () => {
-
-// });
+    it('throws an error if status code is not ok', async () => {
+      const expected = new Error('failed to fetch')
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject('failed to fetch'));
+      await expect(getResident('films')).rejects.toEqual(expected);
+    });
 
   }); 
 
