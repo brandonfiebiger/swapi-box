@@ -24,32 +24,21 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const storedData = localStorage.getItem("films");
+    const cleanedData = await fetchData('films');
+    this.setState({ 'films': cleanedData, loading: false });
+    const storedData = localStorage.getItem("favorites");
     if (storedData) {
       var parsedData = JSON.parse(storedData);
-      this.setState({ 'films': parsedData, loading: false });
-    } else {
-      const cleanedData = await fetchData('films');
-      var dataString = JSON.stringify(cleanedData);
-      localStorage.setItem('films', dataString);
-      this.setState({ 'films': cleanedData, loading: false });
-    }
+      this.setState({ 'favorites': parsedData });
+    } 
   }
 
   selectCategory = (category) => {
     if (!this.state[category].length) {
-      const storedData = localStorage.getItem(category)
-      if (storedData) {
-        var parsedData = JSON.parse(storedData);
-        this.setState({ [category]: parsedData });
-      } else {
-        this.setState({ loading: true }, async() => {
-          const cleanedData = await fetchData(category);
-          var dataString = JSON.stringify(cleanedData);
-          localStorage.setItem(category, dataString);
-          this.setState({ [category]: cleanedData, loading: false });
-        });
-      }
+      this.setState({ loading: true }, async() => {
+        const cleanedData = await fetchData(category);
+        this.setState({ [category]: cleanedData, loading: false });
+      });
     }
     this.setState({ selectedCategory: category });
   }
@@ -70,9 +59,14 @@ class App extends Component {
       const filteredFavorites = favorites.filter( favorite => (
         favorite !== clickedCard
       ));
+      var dataString = JSON.stringify(filteredFavorites);
+      localStorage.setItem('favorites', dataString);
       this.setState({ favorites: filteredFavorites });
     } else {
-      this.setState({ favorites: [...favorites, clickedCard] });
+      const addedFavorites = [...favorites, clickedCard];
+      var dataString = JSON.stringify(addedFavorites);
+      localStorage.setItem('favorites', dataString);
+      this.setState({ favorites: addedFavorites });
     }
   }
 
