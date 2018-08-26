@@ -59,12 +59,12 @@ class App extends Component {
       const filteredFavorites = favorites.filter( favorite => (
         favorite !== clickedCard
       ));
-      var dataString = JSON.stringify(filteredFavorites);
+      let dataString = JSON.stringify(filteredFavorites);
       localStorage.setItem('favorites', dataString);
       this.setState({ favorites: filteredFavorites });
     } else {
       const addedFavorites = [...favorites, clickedCard];
-      var dataString = JSON.stringify(addedFavorites);
+      let dataString = JSON.stringify(addedFavorites);
       localStorage.setItem('favorites', dataString);
       this.setState({ favorites: addedFavorites });
     }
