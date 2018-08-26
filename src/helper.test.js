@@ -1,7 +1,8 @@
-import cleanData from "./helper";
-
+import { cleanData, getPeopleData, getPlanetData } from "./helper";
 import { mockFilmData } from './apiCalls/mockFilmData';
 import  mockPeopleData from './apiCalls/mockPeopleData';
+import { mockPlanetData, dataToFeedForPlanets } from './apiCalls/mockPlanetData';
+jest.mock('./apiCalls/apiCalls.js')
 
 describe('cleanData', () => {
   it.skip('should invoke a certain function based on the category', () => {
@@ -28,21 +29,22 @@ describe('cleanData', () => {
   });
 
   describe.skip('getPeopleData', () => {
-    it('should return clean people data', () => {
+    it('should return clean people data', async () => {
       const data = mockPeopleData;
-      console.log(data)
-      const cleanedData = cleanData(data, 'people');
-  
+      // console.log(data)
+      const cleanedData = await getPeopleData(data);
       expect(cleanedData).toHaveLength();
     });
   });
 
-  describe.skip('getPlanetData', () => {
-    it('should return clean planet data', () => {
-      const data = mockPlanetData;
-      const cleanedData = cleanData(data, 'planets');
+  describe.only('getPlanetData', () => {
+    it('should return clean planet data', async () => {
+      const data = dataToFeedForPlanets;
+      console.log(data)
+     
+      const cleanedData = await getPlanetData(dataToFeedForPlanets);
   
-      expect(cleanedData).toHaveLength();
+      expect(cleanedData).toHaveLength(10);
     });
   });
 

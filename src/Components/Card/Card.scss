@@ -1,4 +1,5 @@
-@import "variables.scss";
+@import 'variables.scss';
+
 
 .Card {
   background: #A1ABB6;
@@ -7,12 +8,13 @@
   // height: 20rem;
   width: 15rem;
   color: #f2f2f2;
-  margin: 0 1rem;
+  margin: 0 1;
+  margin-left: 5rem;
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   opacity: 0.95;
-  text-shadow: 1.5px 1.5px $shadow-color;
+  text-shadow: 2px 2px $shadow-color;
   &:hover {
     opacity: 1;
     cursor: pointer;
@@ -45,18 +47,20 @@ ul {
 }
 
 .residents {
-  // overflow: scroll;
-  // height: 3rem;
-  // line-height: 2rem;
-  // border: 1px solid cadetblue;
-  // margin-right: 2rem;
-  // height: 4rem;
-  // margin-bottom: 5rem;
+  overflow: scroll;
+  height: 3rem;
+  line-height: 2rem;
+  border: 1px solid cadetblue;
+  margin-right: 2rem;
+  height: 4rem;
+  margin-bottom: 5rem;
+  padding: .3rem;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 900px) {
   .Card {
-    margin-left: 0;
+    margin-left: 1rem;
   }
 }
 
