@@ -1,10 +1,8 @@
 import { cleanData, getPeopleData, getPlanetData, getVehicleData, getResidents, getFilmData } from "./helper";
-import { mockFilmData } from './apiCalls/mockFilmData';
 import { mockVehicleData, mockVehicleResult } from './apiCalls/mockVehicleData'
-import { mockFilmResult, filmResultafterCleanData } from './apiCalls/mockFilmResult'
-import  mockPeopleData from './apiCalls/mockPeopleData';
+import  { mockPeopleData, mockPeopleResult, peopleResultFromGetPeopleData } from './apiCalls/mockPeopleData';
+import { mockFilmData, mockFilmResult, filmResultafterCleanData } from './apiCalls/mockFilmData';
 import { mockPlanetData, dataToFeedForPlanets, mockGetPlanetDataResult, dataToFeedForResidents } from './apiCalls/mockPlanetData';
-import { mockPeopleResult, peopleResultFromGetPeopleData} from './apiCalls/mockPeopleResult'
 jest.mock('./apiCalls/apiCalls.js')
 
 describe('cleanData', () => {
@@ -66,13 +64,4 @@ describe('cleanData', () => {
       expect(cleanedData).toHaveLength(10);
     });
   });
-
-  describe('getResidents', () => {
-    it('should get the correct resident data', async () => {
-      const residentNames = await getResidents(dataToFeedForResidents)
-      const resolvedNames = Promise.all(residentNames)
-      expect(residentNames).toEqual('')
-    })
-  })
-
 });

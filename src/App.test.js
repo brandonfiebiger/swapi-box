@@ -15,14 +15,14 @@ describe('App', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it.skip('should check to see if there are favorites in localStorage and update state if there are', () => {
-    expect(wrapper.state().favorites).toEqual([]);
+  it('should check to see if there are favorites in localStorage and update state if there are', async () => {
+    expect(wrapper.state('favorites')).toEqual([]);
     const favorites = [{name: 'test'}];
 
     localStorage.setItem('favorites', JSON.stringify(favorites));
-    wrapper.shallow(<App />);
+    wrapper = shallow(<App />);
 
-    expect(wrapper.state().favorites).toEqual([{name: 'test'}]);
+    expect(wrapper.state('favorites')).toEqual([{name: 'test'}]);
   });
   
   describe('selectCategory', () => {
@@ -73,13 +73,13 @@ describe('App', () => {
   describe('toggleFavorites', () => {
     
     it('should update the state of favorites with a new favorite', () => {
-      wrapper.instance().toggleFavorites('I love you');
-      expect(wrapper.state('favorites')).toEqual(['I love you']);
+      wrapper.instance().toggleFavorites('FOO');
+      expect(wrapper.state('favorites')).toEqual(['FOO']);
     });
 
     it('should remove the favorite from the array when input twice', () => {
-      wrapper.instance().toggleFavorites('lets be friends');
-      wrapper.instance().toggleFavorites('lets be friends');
+      wrapper.instance().toggleFavorites('BAR');
+      wrapper.instance().toggleFavorites('BAR');
       expect(wrapper.state('favorites')).toEqual([]);
     });
 

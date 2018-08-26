@@ -86,7 +86,7 @@ describe('apiCalls', () => {
     it('throws an error if status code is not ok', async () => {
       const expected = new Error('failed to fetch')
       window.fetch = jest.fn().mockImplementation(() => Promise.reject('failed to fetch'));
-      await expect( getResident('films')).rejects.toEqual(expected);
+      await expect(getResident('films')).rejects.toEqual(expected);
     });
 
   }); 
