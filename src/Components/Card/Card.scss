@@ -1,11 +1,10 @@
 .Card {
-  color: #fff;
-  background: blanchedalmond;
-  border: 5px solid cadetblue;
+  background: #5a6472;
+  border: 5px solid #763638;
   border-radius: 10px;
   height: 20rem;
-  min-width: 15rem;
-  color: cadetblue;
+  width: 15rem;
+  color: #f2f2f2;
   margin-left: 6rem;
   margin-bottom: 3rem;
   display: flex;
@@ -17,6 +16,7 @@
   }
   &:active {
     opacity: 0.93;
+    border: 5px solid #ff0000;
   }
 }
 
@@ -42,5 +42,11 @@ ul {
 @media screen and (max-width: 900px) {
   .Card {
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Card {
+    min-width: 15rem;
   }
 }
