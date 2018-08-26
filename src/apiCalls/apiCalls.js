@@ -10,34 +10,33 @@ export const fetchData = async (category) => {
     return cleanedData;
   } 
   catch(error) {
-    // throw new Error(error.message)
-    alert('Error fetching initial data');
+    throw new Error('Error fetching initial data');
   }
 }
 
 export const getHomeworld = async (url) => {
   try {
-    const response = await fetch(url)
-    return await response.json()
+    const response = await fetch(url);
+    return await response.json();
   } catch(error) {
-    throw new Error('failed to fetch')
+    throw new Error('failed to fetch');
   }
-}
+};
 
 export const getSingleSpecies = async (url) => {
   try {
-    const response = await fetch(url)
+    const response = await fetch(url);
     return await response.json();
   } catch(error) {
-    throw new Error('failed to fetch')
+    throw new Error('failed to fetch');
   }
-}
+};
 
 export const getResident = async (url) => {
   try {
-    const response = await fetch(url)
-    return await response.json()
+    const response = await fetch(url);
+    return await response.json();
   } catch(error) {
-    throw new Error('failed to fetch')
+    throw new Error('failed to fetch');
   }
-}
+};

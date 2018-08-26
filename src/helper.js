@@ -13,7 +13,6 @@ export const cleanData = (data, dataCategory) => {
       break;
     case 'people':
       cleanedData = getPeopleData(data);
-      console.log(cleanedData)
       break;
     case 'planets':
       cleanedData = getPlanetData(data);
