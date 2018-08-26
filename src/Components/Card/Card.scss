@@ -1,6 +1,52 @@
 .Card {
-  color: #fff;
+  background: #5a6472;
+  border: 5px solid #763638;
+  border-radius: 10px;
+  height: 20rem;
+  width: 15rem;
+  color: #f2f2f2;
+  margin-left: 6rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.95;
   &:hover {
-  cursor: pointer;
+    opacity: 1;
+    cursor: pointer;
+  }
+  &:active {
+    opacity: 0.93;
+    border: 5px solid #ff0000;
+  }
+}
+
+ul {
+ height: 13rem;
+//  line-height: 2.2rem;
+}
+
+.name {
+  font-size: 1.5rem;
+}
+
+.residents {
+  overflow: scroll;
+  height: 3rem;
+  line-height: 2rem;
+  border: 1px solid cadetblue;
+  margin-right: 2rem;
+  height: 4rem;
+  margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .Card {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Card {
+    min-width: 15rem;
   }
 }

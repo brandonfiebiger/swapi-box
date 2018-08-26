@@ -12,6 +12,7 @@ const CardContainer = ({
 }) => {
   const displayedCards = category.map( (facts, index) => {
     const selected = favorites.includes(facts);
+    console.log(facts.terrain)
     return <Card 
       key={index} 
       facts={facts} 
