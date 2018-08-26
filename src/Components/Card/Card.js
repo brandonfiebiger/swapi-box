@@ -7,7 +7,13 @@ const Card = ({ facts, toggleFavorites, selected }) => {
   let fillColor;
   const cardFacts = Object.keys(facts).map( (fact, index) => {
     selected ? fillColor = '#fac917' : fillColor = '#f2f2f2';
-    return fact === 'name' ? <li className={fact} key={index}>{facts[fact]}</li> : <li className={fact} key={index}>{fact}: {facts[fact]}</li>;
+    if(fact === 'name') {
+      return <li className={fact} key={index}>{facts[fact]}</li>
+    } else if (fact === 'residents' && !facts[fact].length) {
+      return
+    } else {
+      return <li className={fact} key={index}>{fact}: {facts[fact]}</li>
+    }
   });
 
   return (
