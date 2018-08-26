@@ -12,7 +12,6 @@ const CardContainer = ({
 }) => {
   const displayedCards = category.map( (facts, index) => {
     const selected = favorites.includes(facts);
-    console.log(facts.terrain)
     return <Card 
       key={index} 
       facts={facts} 
@@ -30,7 +29,7 @@ const CardContainer = ({
 export default CardContainer;
 
 CardContainer.propTypes = {
-  category: PropTypes.arrayOf(PropTypes.object),
+  category: PropTypes.array,
   toggleFavorites: PropTypes.func,
-  favorites: PropTypes.arrayOf(PropTypes.object)
+  favorites: PropTypes.array
 };

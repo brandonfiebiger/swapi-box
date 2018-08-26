@@ -66,4 +66,14 @@ describe('Card', () => {
     expect(wrapper.find('path').prop('fill')).toEqual('#fac917');
   });
 
+  it('should say none next to residents if there are none', () => {
+    facts = {residents: []};
+    const wrapper = shallow(<Card facts={facts} 
+      toggleFavorites={mockToggleFavorites} 
+      selected={selected} />);
+
+    expect(wrapper.find('.residents').text()).toEqual('residents: none');
+
+  });
+
 });

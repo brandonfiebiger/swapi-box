@@ -49,12 +49,6 @@ describe('App', () => {
       expect(wrapper.state('selectedCategory')).toEqual('planets');
     });
 
-    it.skip('should call the fetchData method', () => {
-      const fetchData = jest.fn() ;
-      wrapper.instance().selectCategory('planets');
-      expect(fetchData).toHaveBeenCalled();
-    });
-
   });
 
   describe('selectFavorites', () => {
