@@ -15,9 +15,8 @@
 }
 
 ul {
- margin: auto 0;
  height: 13rem;
- line-height: 3rem;
+ line-height: 2.2rem;
 }
 
 .name {
@@ -25,5 +24,6 @@ ul {
 }
 
 .residents {
-  line-height: 0rem;
+  overflow: scroll;
+  height: 3rem;
 }
