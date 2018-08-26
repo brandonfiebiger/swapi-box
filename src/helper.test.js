@@ -22,6 +22,11 @@ describe('cleanData', () => {
     expect(cleanedVehicles).toEqual(mockVehicleResult);
   }); 
 
+  it('should default to returning an empty array', () => {
+    const emptyArray = cleanData()
+    expect(emptyArray).toEqual([])
+  })
+
   describe('getFilmData', () => {
     it('should return clean film data', () => {
       const data = mockFilmData;
