@@ -24,16 +24,32 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const cleanedData = await fetchData('films');
-    this.setState({ 'films': cleanedData, loading: false });
+    const storedData = localStorage.getItem("films");
+    if (storedData) {
+      var parsedData = JSON.parse(storedData);
+      this.setState({ 'films': parsedData, loading: false });
+    } else {
+      const cleanedData = await fetchData('films');
+      var dataString = JSON.stringify(cleanedData);
+      localStorage.setItem('films', dataString);
+      this.setState({ 'films': cleanedData, loading: false });
+    }
   }
 
   selectCategory = (category) => {
     if (!this.state[category].length) {
-      this.setState({ loading: true }, async() => {
-        const cleanedData = await fetchData(category);
-        this.setState({ [category]: cleanedData, loading: false });
-      });
+      const storedData = localStorage.getItem(category)
+      if (storedData) {
+        var parsedData = JSON.parse(storedData);
+        this.setState({ [category]: parsedData });
+      } else {
+        this.setState({ loading: true }, async() => {
+          const cleanedData = await fetchData(category);
+          var dataString = JSON.stringify(cleanedData);
+          localStorage.setItem(category, dataString);
+          this.setState({ [category]: cleanedData, loading: false });
+        });
+      }
     }
     this.setState({ selectedCategory: category });
   }
