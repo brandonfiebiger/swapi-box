@@ -26,6 +26,11 @@ class App extends Component {
   async componentDidMount() {
     const cleanedData = await fetchData('films');
     this.setState({ 'films': cleanedData, loading: false });
+    const storedData = localStorage.getItem("favorites");
+    if (storedData) {
+      var parsedData = JSON.parse(storedData);
+      this.setState({ 'favorites': parsedData });
+    } 
   }
 
   selectCategory = (category) => {
@@ -54,9 +59,14 @@ class App extends Component {
       const filteredFavorites = favorites.filter( favorite => (
         favorite !== clickedCard
       ));
+      let dataString = JSON.stringify(filteredFavorites);
+      localStorage.setItem('favorites', dataString);
       this.setState({ favorites: filteredFavorites });
     } else {
-      this.setState({ favorites: [...favorites, clickedCard] });
+      const addedFavorites = [...favorites, clickedCard];
+      let dataString = JSON.stringify(addedFavorites);
+      localStorage.setItem('favorites', dataString);
+      this.setState({ favorites: addedFavorites });
     }
   }
 

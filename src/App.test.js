@@ -7,11 +7,22 @@ describe('App', () => {
   let wrapper;
 
   beforeEach(() => {
+    localStorage.clear()
     wrapper = shallow(<App />);
   });
 
   it('should match snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it.skip('should check to see if there are favorites in localStorage and update state if there are', () => {
+    expect(wrapper.state().favorites).toEqual([]);
+    const favorites = [{name: 'test'}];
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    wrapper.shallow(<App />);
+
+    expect(wrapper.state().favorites).toEqual([{name: 'test'}]);
   });
   
   describe('selectCategory', () => {
@@ -76,6 +87,16 @@ describe('App', () => {
       wrapper.instance().toggleFavorites('lets be friends');
       wrapper.instance().toggleFavorites('lets be friends');
       expect(wrapper.state('favorites')).toEqual([]);
+    });
+
+    it('should save favorites to localeStorage', () => {
+      const favorite = {name: 'test'};
+    
+      expect(localStorage.getItem('favorites')).toEqual(undefined);
+  
+      wrapper.instance().toggleFavorites(favorite);
+  
+      expect(JSON.parse(localStorage.getItem('favorites'))).toEqual([favorite]);
     });
 
   });

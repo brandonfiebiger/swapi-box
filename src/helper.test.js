@@ -1,16 +1,11 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import cleanData from "./helper";
 
-import mockFilmData from './apiCalls/mockFilmData';
-import mockPeopleData from './apiCalls/mockPeopleData';
+import { mockFilmData } from './apiCalls/mockFilmData';
+import  mockPeopleData from './apiCalls/mockPeopleData';
 
 describe('cleanData', () => {
-  it('should invoke a certain function based on the category', () => {
-    const data = {results: []};
-    
-    cleanData(data, 'films');
+  it.skip('should invoke a certain function based on the category', () => {
+    cleanData(data, 'films')
     expect(getFilmData).toHaveBeenCalled();
     
     cleanData(data, 'people');
@@ -21,21 +16,43 @@ describe('cleanData', () => {
 
     cleanData(data, 'vehicles');
     expect(getVehicleData).toHaveBeenCalled();
-  })  
+  }); 
 
   describe('getFilmData', () => {
-
-  })
-
-  describe('getPeopleData', () => {
+    it('should return clean film data', () => {
+      const data = mockFilmData;
+      const cleanedData = cleanData(data, 'films');
   
-  })
+      expect(cleanedData).toHaveLength(2);
+    });
+  });
 
-  describe('getPlanetData', () => {
+  describe.skip('getPeopleData', () => {
+    it('should return clean people data', () => {
+      const data = mockPeopleData;
+      console.log(data)
+      const cleanedData = cleanData(data, 'people');
+  
+      expect(cleanedData).toHaveLength();
+    });
+  });
 
-  })
+  describe.skip('getPlanetData', () => {
+    it('should return clean planet data', () => {
+      const data = mockPlanetData;
+      const cleanedData = cleanData(data, 'planets');
+  
+      expect(cleanedData).toHaveLength();
+    });
+  });
 
-  describe('getVehicleData', () => {
+  describe.skip('getVehicleData', () => {
+    it('should return clean vehicle data', () => {
+      const data = mockVehicleData;
+      const cleanedData = cleanData(data, 'vehicles');
+  
+      expect(cleanedData).toHaveLength();
+    });
+  });
 
-  })
-})
+});

@@ -1,4 +1,3 @@
-
 export const mockFilmData = {
   "count": 7,
   "next": null,

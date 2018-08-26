@@ -10,7 +10,7 @@ export const fetchData = async (category) => {
     return cleanedData;
   } 
   catch(error) {
-    alert(error.message);
+    alert('Error fetching initial data');
   }
 }
 
