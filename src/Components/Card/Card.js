@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 const Card = ({ facts, toggleFavorites, selected }) => {
-  let fillColor;
+  let fillColor = '#f2f2f2';
   const cardFacts = Object.keys(facts).map( (fact, index) => {
     selected ? fillColor = '#fac917' : fillColor = '#f2f2f2';
-    if(fact === 'name') {
+    if (fact === 'name') {
       return <li className={fact} key={index}>{facts[fact]}</li>
     } else if (fact === 'residents' && !facts[fact].length) {
-      return
+      return 
     } else {
-      return <li className={fact} key={index}>{fact}: {facts[fact]}</li>
+      return <li className={fact} key={index}><span>{fact}:</span> {facts[fact]}</li>
     }
   });
 
