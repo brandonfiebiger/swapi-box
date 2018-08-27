@@ -1,10 +1,9 @@
 import { fetchData, getHomeworld, getSingleSpecies, getResident } from './apiCalls';
-import { mockFilmData } from './mockFilmData';
-import  mockPeopleData  from './mockPeopleData';
-import { peopleResultAfterFetchData } from './mockPeopleResult';
-import { mockPlanetData, mockPlanetResult } from './mockPlanetData';
-import { mockSpeciesData, mockSpeciesResult } from './mockSpeciesData';
-import { mockResidentData, mockResidentResult } from './mockResidentData';
+import { mockFilmData } from './mockData/mockFilmData';
+import { mockPeopleData, peopleResultAfterFetchData } from './mockData/mockPeopleData';
+import { mockPlanetData, mockPlanetResult } from './mockData/mockPlanetData';
+import { mockSpeciesData, mockSpeciesResult } from './mockData/mockSpeciesData';
+import { mockResidentData, mockResidentResult } from './mockData/mockResidentData';
 
 describe('apiCalls', () => {
 
@@ -35,6 +34,7 @@ describe('apiCalls', () => {
   });
   
   describe('getHomeworld', () => {
+
     it('should return the correct planet data', async () => {
       window.fetch = jest.fn().mockImplementation( async () => Promise.resolve({
         status: 200,
@@ -49,14 +49,11 @@ describe('apiCalls', () => {
         await expect( getHomeworld('films')).rejects.toEqual(expected);
       });
     });
-
-    // it('should throw an error is status code is not ok', () => {
-
-    // });
     
   });
 
   describe('getSingleSpecies', () => {
+
     it('should get the correct species data', async () => {
       window.fetch = jest.fn().mockImplementation( async () => Promise.resolve({
         status: 200,
@@ -74,6 +71,7 @@ describe('apiCalls', () => {
   });
 
   describe('getResident', () => {
+    
     it('should aquire the correct resident data', async () => {
       window.fetch = jest.fn().mockImplementation( () => Promise.resolve({
         status: 200,

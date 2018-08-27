@@ -1,8 +1,8 @@
 import { cleanData, getPeopleData, getPlanetData } from "./helper";
-import { mockVehicleData, mockVehicleResult } from './apiCalls/mockVehicleData';
-import  { mockPeopleData, peopleResultFromGetPeopleData } from './apiCalls/mockPeopleData';
-import { mockFilmData, filmResultafterCleanData } from './apiCalls/mockFilmData';
-import { dataToFeedForPlanets, mockGetPlanetDataResult } from './apiCalls/mockPlanetData';
+import { mockVehicleData, mockVehicleResult } from './apiCalls/mockData/mockVehicleData';
+import  { mockPeopleData, peopleResultFromGetPeopleData } from './apiCalls/mockData/mockPeopleData';
+import { mockFilmData, filmResultafterCleanData } from './apiCalls/mockData/mockFilmData';
+import { dataToFeedForPlanets, mockGetPlanetDataResult } from './apiCalls/mockData/mockPlanetData';
 
 jest.mock('./apiCalls/apiCalls.js');
 

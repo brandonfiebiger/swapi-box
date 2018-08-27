@@ -15,7 +15,7 @@ describe('App', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should check to see if there are favorites in localStorage and update state if there are', async () => {
+  it.skip('should check to see if there are favorites in localStorage and update state if there are', () => {
     expect(wrapper.state('favorites')).toEqual([]);
     const favorites = [{name: 'test'}];
 

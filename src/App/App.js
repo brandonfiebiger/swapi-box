@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { fetchData } from './apiCalls/apiCalls.js';
-import Crawl from './Components/Crawl/Crawl.js';
-import Favorites from './Components/Favorites/Favorites.js';
-import Categories from './Components/Categories/Categories';
-import CardContainer from './Components/CardContainer/CardContainer';
+import { fetchData } from '../apiCalls/apiCalls';
+import Crawl from '../Components/Crawl/Crawl';
+import Favorites from '../Components/Favorites/Favorites';
+import Categories from '../Components/Categories/Categories';
+import CardContainer from '../Components/CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
@@ -86,7 +86,7 @@ class App extends Component {
         <div className={appLoading}>Loading...</div>
         <Crawl films={films} />
         <header>
-          <img src={require('./images/logo.png')} alt='SWAPIbox' />
+          <img src={require('../assets/logo.png')} alt='SWAPIbox' />
           <Categories 
             categories={categories} 
             selectedCategory={selectedCategory}
