@@ -1,6 +1,6 @@
 # SWAPIBox
 
-Description... 
+Project to practice building out React components with added complexity and using [The Star Wars API](https://swapi.co/documentation). Fully tested application created with a modular structure and using [Create-React-App](https://github.com/facebook/create-react-app).
 
 ## Set Up
 
@@ -23,6 +23,6 @@ You can run tests with `npm test`
 * Use propTypes for every component receiving props.
 
 ## Final Result
-![]()  
+![layout](src/assets/layout.gif)  
 
-![]()  
+![responsive layout](src/assets/responsive_layout.gif)  
